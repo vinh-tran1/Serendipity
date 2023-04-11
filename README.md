@@ -8,5 +8,8 @@ Password: HciGroup19
 
 ## References
 
+Course resource to guide taking input from the kinect sensor:
 [Display Input Reference](https://cpsc484-584-hci.gitlab.io/s23/display_tutorial/)
 
+CSS Framework simplifying styling:
+[Bootstrap Framwork](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
