@@ -1,3 +1,5 @@
+// Note: we multiply positions by -1 because the user is facing the kinect sensor so we need to reverse the direction
+
 // Right Hand Raise
 export function handRightDetection(frame) {
     //normalize by subtracting the pelvis joint coordinates

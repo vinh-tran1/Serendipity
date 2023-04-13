@@ -1,11 +1,36 @@
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.floating-text {
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
 .bg-grad {
     background: linear-gradient(221deg, #7ab1a3, #abd5eb, #abb6eb, #eaebf0);
     background-size: 1000% 1000%;
     animation: bgColorFlow 14s ease infinite;
 }
 
-@keyframes bgColorFlow { 
-    0%{background-position:50% 0%}
-    50%{background-position:50% 100%}
-    100%{background-position:50% 0%}
+@keyframes bgColorFlow {
+    0% {
+        background-position: 50% 0%;
+    }
+    50% {
+        background-position: 50% 100%;
+    }
+    100% {
+        background-position: 50% 0%;
+    }
 }
