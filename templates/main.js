@@ -19,11 +19,13 @@ var frames = {
 
 
     show: function (frame) {
+        var loading = document.getElementById("loading");
 
         // If hand above head for x time, then go to selection.html
         counter += handDetection(frame)
+        loading.innerHTML = Math.floor((30 - counter)/3);
 
-        if (counter > 10) {
+        if (counter > 30) {
             window.location.replace("selection.html")
         }
         console.log(counter);
@@ -38,6 +40,4 @@ function handDetection(frame) {
     }
     return 0
 
-// detect length of hand raise and display loading
- 
 }
