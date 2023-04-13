@@ -13,3 +13,8 @@ Course resource to guide taking input from the kinect sensor:
 
 CSS Framework simplifying styling:
 [Bootstrap Framwork](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
+
+to run code on laptop
+
+1. python -m SimpleHTTPServer 8000
+2. go to localhost:8000/landing.html
