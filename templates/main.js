@@ -37,4 +37,7 @@ function handDetection(frame) {
         return 1
     }
     return 0
+
+// detect length of hand raise and display loading
+ 
 }
