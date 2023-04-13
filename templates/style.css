@@ -1,3 +1,23 @@
+/*styling for background for all oages*/
+.bg-grad {
+    background: linear-gradient(221deg, #7ab1a3, #abd5eb, #abb6eb, #eaebf0);
+    background-size: 1000% 1000%;
+    animation: bgColorFlow 14s ease infinite;
+}
+
+@keyframes bgColorFlow {
+    0% {
+        background-position: 50% 0%;
+    }
+    50% {
+        background-position: 50% 100%;
+    }
+    100% {
+        background-position: 50% 0%;
+    }
+}
+
+/*Styling for floating title*/
 @keyframes floating {
     0% {
         transform: translateY(0);
@@ -17,20 +37,64 @@
     animation-iteration-count: infinite;
 }
 
-.bg-grad {
-    background: linear-gradient(221deg, #7ab1a3, #abd5eb, #abb6eb, #eaebf0);
-    background-size: 1000% 1000%;
-    animation: bgColorFlow 14s ease infinite;
-}
+/*styling for timer on landing page*/
+.timer-container {
+    position: relative;
+    width: 125px;
+    height: 125px;
+  }
 
-@keyframes bgColorFlow {
+  /* Timer ring */
+  .timer-ring {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 4px solid #f8f9fa;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  /* Timer fill */
+  .timer-fill {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 4px solid transparent;
+    border-radius: 50%;
+    border-top-color: #007bff;
+    z-index: 2;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    animation: timerFill 10s linear infinite;
+  }
+
+   /* Timer number */
+.timer-number {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: bold;
+    z-index: 3;
+  }
+
+/* Timer fill animation */
+@keyframes timerFill {
     0% {
-        background-position: 50% 0%;
-    }
-    50% {
-        background-position: 50% 100%;
+        transform: rotate(0deg);
+        border-top-color: #007bff;
     }
     100% {
-        background-position: 50% 0%;
+        transform: rotate(360deg);
+        border-top-color: transparent;
     }
-}
+  }

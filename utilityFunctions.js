@@ -26,6 +26,20 @@ export function handLeftDetection(frame) {
     return 0;
 }
 
+// Any Hand Raise
+export function handAnyDetection(frame) {
+    //normalize by subtracting the pelvis joint coordinates
+    var pelvis_y = frame.people[0].joints[0].position.y;
+    var right_hand_y = (frame.people[0].joints[15].position.y - pelvis_y) * -1;
+    var left_hand_y = (frame.people[0].joints[8].position.y - pelvis_y) * -1;
+    var head_y = (frame.people[0].joints[26].position.y - pelvis_y) * -1;
+
+    if (right_hand_y > head_y || left_hand_y > head_y)
+        return 1;
+
+    return 0;
+}
+
 // Return Grid Position
 export function getGridPosition(frame) {
     // I don't think I need to normalize joint positions, I need absolute position?
