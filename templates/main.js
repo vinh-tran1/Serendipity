@@ -4,6 +4,8 @@ $(document).ready(function () {
     frames.start();
 });
 
+var counter = 0
+
 var frames = {
     socket: null,
 
@@ -15,18 +17,24 @@ var frames = {
         }
     },
 
+
     show: function (frame) {
 
         // If hand above head for x time, then go to selection.html
-        if (false) {
+        counter += handDetection(frame)
+
+        if (counter > 10) {
             window.location.replace("selection.html")
         }
-        console.log(frame);
+        console.log(counter);
     }
     
 };
 
 // Process the frame to determine that the hand is above the head
 function handDetection(frame) {
-    
+    if (frame.people[0].joints[26].position.y > frame.people[0].joints[15].position.y){
+        return 1
+    }
+    return 0
 }
