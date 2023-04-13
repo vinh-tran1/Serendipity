@@ -1,4 +1,4 @@
-import { handLeftDetection, handRightDetection, handAnyDetection, getGridPosition } from "../utilityFunctions";
+import { handLeftDetection, handRightDetection, handAnyDetection, getGridPosition } from "./utilityFunctions";
 
 var host = "cpsc484-02.yale.internal:8888";
 
