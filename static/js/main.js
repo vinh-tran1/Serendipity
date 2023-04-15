@@ -1,7 +1,7 @@
 import { handLeftDetection, handRightDetection, handAnyDetection, getGridPosition } from "./utilityFunctions.js";
 
-// var host = "cpsc484-02.yale.internal:8888";
-var host = "127.0.0.1:4444"; // recorded data
+var host = "cpsc484-01.yale.internal:8888";
+// var host = "127.0.0.1:4444"; // recorded data
 
 $(document).ready(function () {
     frames.start();
@@ -9,6 +9,11 @@ $(document).ready(function () {
 
 var rightcounter = 0;
 var leftcounter = 0;
+
+var nonrightcounter = 0;
+var nonleftcounter = 0;
+
+var nopeoplecounter = 0;
 
 var frames = {
     socket: null,
@@ -30,6 +35,9 @@ var frames = {
         var exitfill = document.getElementById("exit-fill")
         var exit = document.getElementById("exit");
 
+        console.log(frame)
+
+        // window.location.replace("selection");
 
         if (frame.people.length > 0) {
             // If right hand above head for x time, then go to selection.html
@@ -39,7 +47,7 @@ var frames = {
                 fill.hidden = false;
                 loading.innerHTML = Math.trunc((30 - rightcounter)/3);
                 if (leftcounter > 30) {
-                    window.location.replace("selection.html");
+                    window.location.replace("selection");
                 }
             }
 
@@ -51,19 +59,10 @@ var frames = {
                 exitfill.hidden = false;
                 exit.innerHTML = "Exiting...";
                 if (leftcounter > 30) {
-                    window.location.replace("landing.html")
+                    window.location.landing("landing");
                 }
             }
         }
     }
     
 };
-
-// Process the frame to determine that the hand is above the head
-function handDetection(frame) {
-    if (frame.people[0].joints[26].position.y > frame.people[0].joints[15].position.y){
-        return 1
-    }
-    return 0
-
-}

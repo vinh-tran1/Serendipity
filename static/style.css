@@ -98,3 +98,8 @@
         border-top-color: transparent;
     }
   }
+
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+}
