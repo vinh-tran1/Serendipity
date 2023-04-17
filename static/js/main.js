@@ -43,27 +43,29 @@ var frames = {
 
         if (frame.people.length > 0) {
             // If right hand above head for x time, then go to selection.html
-            rightcounter += handRightDetection(frame);
-            if (rightcounter > 0) {
-                console.log("right hand raised: ", rightcounter);
-                fill.hidden = false;
-                loading.innerHTML = Math.trunc((30 - rightcounter)/3);
-                if (rightcounter > 30) {
-                    window.location.replace("selection");
-                }
-            }
+            // rightcounter += handRightDetection(frame);
+            // if (rightcounter > 0) {
+            //     console.log("right hand raised: ", rightcounter);
+            //     fill.hidden = false;
+            //     loading.innerHTML = Math.trunc((30 - rightcounter)/3);
+            //     if (rightcounter > 30) {
+            //         window.location.replace("selection");
+            //     }
+            // }
+            handContinue();
+            returnHome();
 
-            // If left hand above head for x time, then go back to home
-            leftcounter += handLeftDetection(frame);
-            if (leftcounter > 0) {
-                console.log("left hand raised: ", leftcounter);
-                exitring.hidden = false;
-                exitfill.hidden = false;
-                exit.innerHTML = "Exiting...";
-                if (leftcounter > 30) {
-                    window.location.landing("landing");
-                }
-            }
+            // // If left hand above head for x time, then go back to home
+            // leftcounter += handLeftDetection(frame);
+            // if (leftcounter > 0) {
+            //     console.log("left hand raised: ", leftcounter);
+            //     exitring.hidden = false;
+            //     exitfill.hidden = false;
+            //     exit.innerHTML = "Exiting...";
+            //     if (leftcounter > 30) {
+            //         window.location.landing("landing");
+            //     }
+            // }
         }
     }
     
@@ -106,7 +108,7 @@ function returnHome(frame) {
         exit.innerHTML = "Exiting...";
         if (leftcounter > 30) {
             exit = true;
-            window.location.replace("landing.html");
+            window.location.landing("landing");
             exit = false
         }
     }

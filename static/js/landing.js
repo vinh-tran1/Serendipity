@@ -29,7 +29,7 @@ function goToSelection(frame) {
     var next = handContinue(frame)
     console.log(next)
     if (next == true) {
-        window.location.replace("selection.html")
+        window.location.replace("selection")
         return 0;
     }
 };
