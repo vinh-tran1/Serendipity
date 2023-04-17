@@ -1,4 +1,4 @@
-import { handContinue } from "./main.js";
+import { handContinue, returnHome } from "./main.js";
 
 // var host = "cpsc484-02.yale.internal:8888";
 var host = "127.0.0.1:4444"; // recorded data
@@ -14,21 +14,19 @@ var frames = {
         var url = "ws://" + host + "/frames";
         frames.socket = new WebSocket(url);
         frames.socket.onmessage = function (event) {
-            frames.show(JSON.parse(event.data));
+            frames.run(JSON.parse(event.data));
         }
     },
 
+    run: function (frame) {
 
-    show: function (frame) {
-        goToQR(frame);
+        // Checks if sufficient right hand raise to continue
+        if (handContinue(frame)) {
+            window.location.replace("create");
+        }
+
+        // Checks if sufficient left hand raise to quit
+        returnHome(frame);
     }
-    
+
 };
-
-function goToQR(frame) {
-    var next = handContinue(frame);
-    console.log("go to qr: ", next)
-    if (next == true) {
-        window.location.replace("qrcode.html");
-    }
-}
