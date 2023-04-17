@@ -20,15 +20,16 @@ var frames = {
 
 
     show: function (frame) {
-        goToQR(frame);
+        goToSelection(frame);
     }
     
 };
 
-function goToQR(frame) {
-    var next = handContinue(frame);
-    console.log("go to qr: ", next)
+function goToSelection(frame) {
+    var next = handContinue(frame)
+    console.log(next)
     if (next == true) {
-        window.location.replace("qrcode.html");
+        window.location.replace("selection.html")
+        return 0;
     }
-}
+};

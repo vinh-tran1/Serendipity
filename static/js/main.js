@@ -9,6 +9,8 @@ $(document).ready(function () {
 
 var rightcounter = 0;
 var leftcounter = 0;
+var next = false
+var exit = false
 
 var nonrightcounter = 0;
 var nonleftcounter = 0;
@@ -66,3 +68,49 @@ var frames = {
     }
     
 };
+
+// If right hand above head for x time, then go to selection.html
+export function handContinue(frame) {
+    // console.log(next)
+    // check if right hand is raised
+    if (handRightDetection(frame) == 1) {
+        rightcounter += handRightDetection(frame);
+        if (rightcounter > 0) {
+            console.log("right hand raised: ", rightcounter);
+            fill.hidden = false;
+            loading.innerHTML = Math.trunc((30 - rightcounter)/3);
+            if (rightcounter > 30) {
+                next = true;
+                console.log("time to go next: ", next)
+                // window.location.replace("selection.html");
+            }
+        }
+    }
+    else {
+        rightcounter = 0;
+        next = false
+    }
+
+    return next
+}
+
+// If left hand above head for x time, then go back to home
+function returnHome(frame) {
+
+    // check if left hand is raised
+    leftcounter += handLeftDetection(frame);
+    if (leftcounter > 0) {
+        console.log("left hand raised: ", leftcounter);
+        exitring.hidden = false;
+        exitfill.hidden = false;
+        exit.innerHTML = "Exiting...";
+        if (leftcounter > 30) {
+            exit = true;
+            window.location.replace("landing.html");
+            exit = false
+        }
+    }
+    else {
+        exit = false
+    }
+}
