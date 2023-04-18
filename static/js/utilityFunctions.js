@@ -1,5 +1,7 @@
 // Note: we multiply positions by -1 because the user is facing the kinect sensor so we need to reverse the direction
 
+// might have to do something about body_ids to make it less cluttered
+
 // Right Hand Raise
 export function handRightDetection(frame) {
     if (frame.people.length > 0) {

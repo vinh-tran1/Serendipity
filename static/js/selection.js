@@ -38,6 +38,6 @@ export function positionProcess(frame) {
     //          if (counters[getGridPosition(frame)] > 30 && getGridPosition(frame) != 0) { // open message! }
     //          else { // no one there, there to landing}
     var position = getGridPosition(frame);
-    //console.log("position: " + position);
+    console.log("position: " + position);
 
 }

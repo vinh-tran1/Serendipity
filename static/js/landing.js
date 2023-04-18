@@ -11,8 +11,8 @@ $(document).ready(function () {
 var rightcounter = 0
 
 var loading = document.getElementById("loading");
-var ring = document.getElementById("timer-ring")
-var fill = document.getElementById("time-fill")
+var ring = document.getElementById("timer-ring");
+var fill = document.getElementById("time-fill");
 
 var frames = {
     socket: null,
@@ -41,7 +41,7 @@ function goToSelection(frame) {
             console.log("right hand raised: ", rightcounter);
             fill.hidden = false;
             loading.innerHTML = Math.trunc((30 - rightcounter)/3);
-            if (rightcounter > 29) {
+            if (rightcounter > 30) {
                 window.location.replace("selection");
             }
         }
