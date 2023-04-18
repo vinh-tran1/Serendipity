@@ -11,8 +11,8 @@ $(document).ready(function () {
 var rightcounter = 0
 
 var loading = document.getElementById("loading");
-var ring = document.getElementById("timer-ring")
-var fill = document.getElementById("time-fill")
+var ring = document.getElementById("timer-ring");
+var fill = document.getElementById("time-fill");
 
 var frames = {
     socket: null,
