@@ -46,9 +46,17 @@ export function handAnyDetection(frame) {
 // Returns if user is standing at envelope 1, 2, or 3
 export function getGridPosition(frame) {
     // Using absolute positioning instead of relative to pelvis
-    var leftBound = 0; var first_x = 100; var second_x = 400;
+
+    //these bounds are if I were to go off the dots
+    //var leftBound = -1780; var first_x = -700; var second_x = 690;
+
+    //these bounds are if I go based of relative positioning of user
+    var leftBound = -2000; var first_x = -480; var second_x = 380;
+
     var chest_x = frame.people[0].joints[2].position.x * -1;
     var gridPostion = 1;
+
+    //console.log("location: " + chest_x);
 
     if (chest_x > leftBound && chest_x <= first_x) //first envelope
         gridPostion = 1;
