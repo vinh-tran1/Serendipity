@@ -7,7 +7,6 @@ $(document).ready(function () {
     frames.start();
 });
 
-var rightcounter = 0;
 var leftcounter = 0;
 var next = false
 var exit = false
@@ -17,37 +16,9 @@ var nonrightcounter = 0;
 var nonleftcounter = 0;
 var nopeoplecounter = 0;
 
-var loading = document.getElementById("loading");
-var ring = document.getElementById("timer-ring")
-var fill = document.getElementById("time-fill")
 var exitring = document.getElementById("exit-ring")
 var exitfill = document.getElementById("exit-fill")
 var exit = document.getElementById("exit");
-
-// If right hand above head for x time, then go to selection.html
-export function handContinue(frame) {
-    // console.log(next)
-    // check if right hand is raised
-    if (handRightDetection(frame) == 1) {
-        rightcounter += handRightDetection(frame);
-        if (rightcounter > 0) {
-            console.log("right hand raised: ", rightcounter);
-            fill.hidden = false;
-            loading.innerHTML = Math.trunc((30 - rightcounter)/3);
-            if (rightcounter > 30) {
-                next = true;
-                console.log("time to go next: ", next)
-                // window.location.replace("selection.html");
-            }
-        }
-    }
-    else {
-        rightcounter = 0;
-        next = false
-    }
-
-    return next
-}
 
 // If left hand above head for x time, then go back to home
 export function returnHome(frame) {

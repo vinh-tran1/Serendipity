@@ -21,12 +21,21 @@ var frames = {
     run: function (frame) {
 
         // Checks if sufficient right hand raise to continue
-        if (handContinue(frame)) {
-            window.location.replace("create");
-        }
-
+        // if (handContinue(frame)) {
+        //     window.location.replace("create");
+        // }
+        goToCreate(frame);
         // Checks if sufficient left hand raise to quit
         returnHome(frame);
     }
 
+};
+
+function goToCreate(frame) {
+    var next = handContinue(frame)
+    console.log(next)
+    if (next == true) {
+        window.location.replace("create")
+        return 0;
+    }
 };

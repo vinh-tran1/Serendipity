@@ -2,41 +2,44 @@
 
 // Right Hand Raise
 export function handRightDetection(frame) {
-    //normalize by subtracting the pelvis joint coordinates
-    var pelvis_y = frame.people[0].joints[0].position.y;
-    var right_hand_y = (frame.people[0].joints[15].position.y - pelvis_y) * -1;
-    var head_y = (frame.people[0].joints[26].position.y - pelvis_y) * -1;
+    if (frame.people.length > 0) {
+        //normalize by subtracting the pelvis joint coordinates
+        var pelvis_y = frame.people[0].joints[0].position.y;
+        var right_hand_y = (frame.people[0].joints[15].position.y - pelvis_y) * -1;
+        var head_y = (frame.people[0].joints[26].position.y - pelvis_y) * -1;
 
-    if (right_hand_y > head_y)
-        return 1;
-
+        if (right_hand_y > head_y)
+            return 1;
+    }
     return 0;
 }
 
 // Left Hand Raise
 export function handLeftDetection(frame) {
-    //normalize by subtracting the pelvis joint coordinates
-    var pelvis_y = frame.people[0].joints[0].position.y;
-    var left_hand_y = (frame.people[0].joints[8].position.y - pelvis_y) * -1;
-    var head_y = (frame.people[0].joints[26].position.y - pelvis_y) * -1;
+    if (frame.people.length > 0) {
+        //normalize by subtracting the pelvis joint coordinates
+        var pelvis_y = frame.people[0].joints[0].position.y;
+        var left_hand_y = (frame.people[0].joints[8].position.y - pelvis_y) * -1;
+        var head_y = (frame.people[0].joints[26].position.y - pelvis_y) * -1;
 
-    if (left_hand_y > head_y)
-        return 1;
-
+        if (left_hand_y > head_y)
+            return 1;
+    }
     return 0;
 }
 
 // Any Hand Raise
 export function handAnyDetection(frame) {
-    //normalize by subtracting the pelvis joint coordinates
-    var pelvis_y = frame.people[0].joints[0].position.y;
-    var right_hand_y = (frame.people[0].joints[15].position.y - pelvis_y) * -1;
-    var left_hand_y = (frame.people[0].joints[8].position.y - pelvis_y) * -1;
-    var head_y = (frame.people[0].joints[26].position.y - pelvis_y) * -1;
+    if (frame.people.length > 0) {
+        //normalize by subtracting the pelvis joint coordinates
+        var pelvis_y = frame.people[0].joints[0].position.y;
+        var right_hand_y = (frame.people[0].joints[15].position.y - pelvis_y) * -1;
+        var left_hand_y = (frame.people[0].joints[8].position.y - pelvis_y) * -1;
+        var head_y = (frame.people[0].joints[26].position.y - pelvis_y) * -1;
 
-    if (right_hand_y > head_y || left_hand_y > head_y)
-        return 1;
-
+        if (right_hand_y > head_y || left_hand_y > head_y)
+            return 1;
+    }
     return 0;
 }
 
