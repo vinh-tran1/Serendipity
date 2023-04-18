@@ -1,4 +1,4 @@
-import { handContinue, returnHome } from "./main.js";
+import { returnHome } from "./main.js";
 
 // var host = "cpsc484-02.yale.internal:8888";
 var host = "127.0.0.1:4444"; // recorded data
@@ -6,6 +6,8 @@ var host = "127.0.0.1:4444"; // recorded data
 $(document).ready(function () {
     frames.start();
 });
+
+var rightcounter = 0;
 
 var frames = {
     socket: null,
@@ -18,24 +20,25 @@ var frames = {
         }
     },
 
-    run: function (frame) {
-
-        // Checks if sufficient right hand raise to continue
-        // if (handContinue(frame)) {
-        //     window.location.replace("create");
-        // }
-        goToCreate(frame);
-        // Checks if sufficient left hand raise to quit
+    show: function (frame) {
         returnHome(frame);
+        goToCreate(frame);
     }
 
 };
 
 function goToCreate(frame) {
-    var next = handContinue(frame)
-    console.log(next)
-    if (next == true) {
-        window.location.replace("create")
-        return 0;
+    // check if right hand raised
+    if (handRightDetection(frame) == 1) {
+        rightcounter += handRightDetection(frame)
+        if (rightcounter > 0) {
+            console.log("right hand raised: ", rightcounter);
+            if (rightcounter > 30) {
+                window.location.replace("create");
+            }
+        }
+    }
+    else {
+        rightcounter = 0;
     }
 };

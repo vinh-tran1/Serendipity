@@ -40,7 +40,7 @@ function goToSelection(frame) {
             console.log("right hand raised: ", rightcounter);
             fill.hidden = false;
             loading.innerHTML = Math.trunc((30 - rightcounter)/3);
-            if (rightcounter > 29) {
+            if (rightcounter > 30) {
                 window.location.replace("selection");
             }
         }
