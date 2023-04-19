@@ -84,3 +84,10 @@ function progressContinue( rightcounter ) {
     document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
 }
 
+
+export function restartCounter() {
+    rightcounter = 0;
+    progress = 0;
+    document.getElementsByClassName('progress-bar').item(0).className = "progress-bar";
+    document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
+}
