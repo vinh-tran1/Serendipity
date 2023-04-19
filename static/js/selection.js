@@ -16,6 +16,8 @@ var progress = 0;
 var page = "message";
 var message = "Opening message. . ."
 
+var checkPosition = 0;
+
 // get option elements
 var optionA = document.getElementById("A")
 var optionB = document.getElementById("B")
@@ -58,23 +60,29 @@ export function positionProcess(frame) {
     //          else { // no one there, there to landing}
     //var position = getGridPosition(frame);
 
-    var position = getGridPosition(frame);
-    optionSelect(position);
-    counter[position]++;
+    var currPosition = getGridPosition(frame);
+    optionSelect(currPosition);
+    counter[currPosition]++;
 
-    if (position != 0 && counter[position] > 5) {
-        goToNext(frame, page, message);
-        returnHome(frame)
+    if (checkPosition == currPosition) {
+        if (currPosition != 0 && counter[currPosition] > 5) {
+            goToNext(frame, page, message);
+            returnHome(frame)
+        }
+        //returns home if user leaves before message selects
+        else if (currPosition == 0 && counter[currPosition] > 100) {
+            window.location.replace("landing");
+        }
+        else if (handLeftDetection(frame) == 0) {
+            restartCounter();
+        }
     }
-    //returns home if user leaves before message selects
-    else if (position == 0 && counter[position] > 100) {
-        window.location.replace("landing");
-    }
-    else if (handLeftDetection(frame) == 0) {
-        restartCounter();
+    else {
+        checkPosition = currPosition;
+        counter = [0, 0, 0, 0];
     }
 
-    console.log("position: " + position + ", counter: " + counter[position]);
+    console.log("current position: " + currPosition + ", checked position: " + checkPosition + ", counter: " + counter[currPosition]);
 
 }
 
