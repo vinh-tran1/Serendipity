@@ -59,13 +59,13 @@ export function getGridPosition(frame) {
     var gridPostion = 1;
 
     //console.log("location: " + chest_x);
-
-    if (chest_x > leftBound && chest_x <= first_x) //first envelope
-        gridPostion = 1;
-    else if (chest_x > first_x && chest_x <= second_x) //second envelope
-        gridPostion = 2;
-    else //third envelope
-        gridPostion = 3;
-
+    if (frame.people.length > 0) {
+        if (chest_x > leftBound && chest_x <= first_x) //first envelope
+            gridPostion = 1;
+        else if (chest_x > first_x && chest_x <= second_x) //second envelope
+            gridPostion = 2;
+        else //third envelope
+            gridPostion = 3;
+    }
     return gridPostion;
 }
