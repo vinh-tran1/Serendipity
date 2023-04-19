@@ -63,10 +63,13 @@ export function positionProcess(frame) {
     optionSelect(position);
     counter[position]++;
 
-    if (position != 0 && counter[position] > 50) //goes to message
-        window.location.replace("message");
-    else if (position == 0 && counter[position] > 100) //returns home if user leaves before message selects
+    if (position != 0 && counter[position] > 50) {
+        goToNext(frame, page, message);
+    }
+    //returns home if user leaves before message selects
+    else if (position == 0 && counter[position] > 100) {
         window.location.replace("landing");
+    }
 
     console.log("position: " + position + ", counter: " + counter[position]);
 
