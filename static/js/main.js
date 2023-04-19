@@ -8,6 +8,7 @@ $(document).ready(function () {
 });
 
 var leftcounter = 0;
+var rightcounter = 0;
 var progress = 0;
 var next = false
 var exit = false
@@ -56,4 +57,30 @@ function progressReturn( leftcounter ) {
     document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
 }
 
+export function goToNext(frame, page) {
+    // check if right hand raised
+    if (handRightDetection(frame) == 1) {
+        rightcounter += handRightDetection(frame)
+        if (rightcounter > 0) {
+            info.innerHTML = "Going to " + {page} + "page...";
+            console.log("right hand raised: ", rightcounter);
+            progressContinue(rightcounter);
+            if (rightcounter > 30) {
+                document.getElementsByClassName('progress-bar').item(0).className = "progress-bar bg-success";
+                window.location.replace(page);
+            }
+        }
+    }
+    else {
+        rightcounter = 0;
+        progress = 0;
+        document.getElementsByClassName('progress-bar').item(0).className = "progress-bar";
+        document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
+    }
+};
+
+function progressContinue( rightcounter ) {
+    progress = Math.floor(rightcounter/30*100)
+    document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
+}
 

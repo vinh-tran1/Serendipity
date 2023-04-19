@@ -1,4 +1,4 @@
-import { returnHome } from "./main.js";
+import { returnHome, goToNext } from "./main.js";
 import { handRightDetection, handLeftDetection } from "./utilityFunctions.js";
 
 // var host = "cpsc484-02.yale.internal:8888";
@@ -11,6 +11,7 @@ $(document).ready(function () {
 
 var rightcounter = 0;
 var progress = 0;
+var page = "create";
 
 var info = document.getElementById("info");
 
@@ -26,7 +27,7 @@ var frames = {
     },
 
     show: function (frame) {
-        goToCreate(frame);
+        goToNext(frame, page);
         returnHome(frame);
         if (handRightDetection(frame) == 0 && handLeftDetection(frame) == 0) {
             info.innerHTML = "Hold up right hand to leave your own message!"
@@ -37,30 +38,3 @@ var frames = {
     }
 
 };
-
-function goToCreate(frame) {
-    // check if right hand raised
-    if (handRightDetection(frame) == 1) {
-        rightcounter += handRightDetection(frame)
-        if (rightcounter > 0) {
-            info.innerHTML = "Going to create page..."
-            console.log("right hand raised: ", rightcounter);
-            progressContinue(rightcounter);
-            if (rightcounter > 30) {
-                document.getElementsByClassName('progress-bar').item(0).className = "progress-bar bg-success";
-                window.location.replace("create");
-            }
-        }
-    }
-    else {
-        rightcounter = 0;
-        progress = 0;
-        document.getElementsByClassName('progress-bar').item(0).className = "progress-bar";
-        document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
-    }
-};
-
-function progressContinue( rightcounter ) {
-    progress = Math.floor(rightcounter/30*100)
-    document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
-}

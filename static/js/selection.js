@@ -1,4 +1,4 @@
-import { returnHome } from "./main.js";
+import { returnHome, goToNext } from "./main.js";
 import { getGridPosition, handLeftDetection, handRightDetection } from "./utilityFunctions.js";
 
 // var host = "cpsc484-02.yale.internal:8888";
@@ -9,8 +9,9 @@ $(document).ready(function () {
 });
 
 var info = document.getElementById("info");
-var rightcounter = 0
-var progress = 0
+var rightcounter = 0;
+var progress = 0;
+var page = "message";
 
 var frames = {
     socket: null,
@@ -24,7 +25,7 @@ var frames = {
     },
 
     show: function (frame) {
-        goToMessage(frame);
+        goToNext(frame, page);
         returnHome(frame);          // left hand check to quit
         positionProcess(frame);     // body position check to select message
         if (handLeftDetection(frame) == 1) {
@@ -51,31 +52,4 @@ export function positionProcess(frame) {
     var position = getGridPosition(frame);
     console.log("position: " + position);
 
-}
-
-function goToMessage(frame) {
-    // check if right hand raised
-    if (handRightDetection(frame) == 1) {
-        rightcounter += handRightDetection(frame)
-        if (rightcounter > 0) {
-            info.innerHTML = "Going to create page..."
-            console.log("right hand raised: ", rightcounter);
-            progressContinue(rightcounter);
-            if (rightcounter > 30) {
-                document.getElementsByClassName('progress-bar').item(0).className = "progress-bar bg-success";
-                window.location.replace("message");
-            }
-        }
-    }
-    else {
-        rightcounter = 0;
-        progress = 0;
-        document.getElementsByClassName('progress-bar').item(0).className = "progress-bar";
-        document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
-    }
-};
-
-function progressContinue( rightcounter ) {
-    progress = Math.floor(rightcounter/30*100)
-    document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
 }
