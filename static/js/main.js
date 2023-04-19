@@ -72,10 +72,7 @@ export function goToNext(frame, page, message) {
         }
     }
     else {
-        rightcounter = 0;
-        progress = 0;
-        document.getElementsByClassName('progress-bar').item(0).className = "progress-bar";
-        document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
+        restartCounter();
     }
 };
 
