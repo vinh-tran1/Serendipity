@@ -12,6 +12,7 @@ $(document).ready(function () {
 var rightcounter = 0;
 var progress = 0;
 var page = "create";
+var message = "Going to create page. . ."
 
 var info = document.getElementById("info");
 
@@ -27,7 +28,7 @@ var frames = {
     },
 
     show: function (frame) {
-        goToNext(frame, page);
+        goToNext(frame, page, message);
         returnHome(frame);
         if (handRightDetection(frame) == 0 && handLeftDetection(frame) == 0) {
             info.innerHTML = "Hold up right hand to leave your own message!"

@@ -57,12 +57,12 @@ function progressReturn( leftcounter ) {
     document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
 }
 
-export function goToNext(frame, page) {
+export function goToNext(frame, page, message) {
     // check if right hand raised
     if (handRightDetection(frame) == 1) {
         rightcounter += handRightDetection(frame)
         if (rightcounter > 0) {
-            info.innerHTML = "Going to " + {page} + "page...";
+            info.innerHTML = message;
             console.log("right hand raised: ", rightcounter);
             progressContinue(rightcounter);
             if (rightcounter > 30) {
