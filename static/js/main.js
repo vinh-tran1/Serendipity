@@ -8,6 +8,7 @@ $(document).ready(function () {
 });
 
 var leftcounter = 0;
+var rightcounter = 0;
 var progress = 0;
 var next = false
 var exit = false
@@ -21,25 +22,34 @@ var info = document.getElementById("info")
 
 // If left hand above head for x time, then go back to home
 export function returnHome(frame) {
-
     // check if left hand is raised
-    leftcounter += handLeftDetection(frame);
-    if (leftcounter > 0) {
-        progressReturn( leftcounter );
-        console.log("left hand raised: ", leftcounter);
-        if (leftcounter > 30) {
-            exit = true;
-            window.location.replace("landing");
-            exit = false
+    if (handLeftDetection(frame) == 1) {
+        leftcounter += handLeftDetection(frame);
+        if (leftcounter > 0) {
+            progressReturn( leftcounter );
+            console.log("left hand raised: ", leftcounter);
+            if (leftcounter > 30) {
+                exit = true;
+                window.location.replace("landing");
+                exit = false
+            }
         }
-    }
-    else {
-        // document.getElementsByClassName('progress-bar').item(0).className = "progress-bar;
+    };
+
+    if (handLeftDetection(frame) == 0 && handRightDetection(frame) == 1) {
+        leftcounter = 0;
+        document.getElementsByClassName('progress-bar').item(0).className = "progress-bar";
+        exit = false
+    };
+
+    if (handLeftDetection(frame) == 0 && handRightDetection(frame) == 0) {
         leftcounter = 0;
         progress = 0;
+        document.getElementsByClassName('progress-bar').item(0).className = "progress-bar";
+        document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
         exit = false
-    }
-}
+    };
+};
 
 function progressReturn( leftcounter ) {
     progress = Math.floor(leftcounter/30*100)
@@ -47,4 +57,30 @@ function progressReturn( leftcounter ) {
     document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
 }
 
+export function goToNext(frame, page, message) {
+    // check if right hand raised
+    if (handRightDetection(frame) == 1) {
+        rightcounter += handRightDetection(frame)
+        if (rightcounter > 0) {
+            info.innerHTML = message;
+            console.log("right hand raised: ", rightcounter);
+            progressContinue(rightcounter);
+            if (rightcounter > 30) {
+                document.getElementsByClassName('progress-bar').item(0).className = "progress-bar bg-success";
+                window.location.replace(page);
+            }
+        }
+    }
+    else {
+        rightcounter = 0;
+        progress = 0;
+        document.getElementsByClassName('progress-bar').item(0).className = "progress-bar";
+        document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
+    }
+};
+
+function progressContinue( rightcounter ) {
+    progress = Math.floor(rightcounter/30*100)
+    document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
+}
 

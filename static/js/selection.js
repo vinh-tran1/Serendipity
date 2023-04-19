@@ -1,14 +1,20 @@
-import { returnHome } from "./main.js";
-import { getGridPosition } from "./utilityFunctions.js";
+import { returnHome, goToNext } from "./main.js";
+import { getGridPosition, handLeftDetection, handRightDetection } from "./utilityFunctions.js";
 
-var host = "cpsc484-02.yale.internal:8888";
-// var host = "127.0.0.1:4444"; // recorded data
+// var host = "cpsc484-02.yale.internal:8888";
+var host = "127.0.0.1:4444"; // recorded data
 
 $(document).ready(function () {
     frames.start();
 });
 
 var counter = [0, 0, 0, 0];
+
+var info = document.getElementById("info");
+var rightcounter = 0;
+var progress = 0;
+var page = "message";
+var message = "Opening message. . ."
 
 var frames = {
     socket: null,
@@ -22,8 +28,15 @@ var frames = {
     },
 
     show: function (frame) {
+        goToNext(frame, page, message);
         returnHome(frame);          // left hand check to quit
         positionProcess(frame);     // body position check to select message
+        if (handRightDetection(frame) == 0 && handLeftDetection(frame) == 0) {
+            info.innerHTML = "Hold up right hand to leave your own message!"
+        }
+        if (handLeftDetection(frame) == 1) {
+            info.innerHTML = "Returning to Homepage. . .";
+        }
     }
 
 };
