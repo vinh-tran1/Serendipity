@@ -16,6 +16,11 @@ var progress = 0;
 var page = "message";
 var message = "Opening message. . ."
 
+// get option elements
+var optionA = document.getElementById("A")
+var optionB = document.getElementById("B")
+var optionC = document.getElementById("C")
+
 var frames = {
     socket: null,
 
@@ -55,6 +60,7 @@ export function positionProcess(frame) {
     //var position = getGridPosition(frame);
 
     var position = getGridPosition(frame);
+    optionSelect(position);
     counter[position]++;
 
     if (position != 0 && counter[position] > 50) //goes to message
@@ -64,4 +70,26 @@ export function positionProcess(frame) {
 
     console.log("position: " + position + ", counter: " + counter[position]);
 
+}
+
+function optionSelect(position) {
+    optionA.style.filter = "brightness(100%)";
+    optionB.style.filter = "brightness(100%)";
+    optionC.style.filter = "brightness(100%)";
+
+    if (position == 1) {
+        optionA.style.filter = "brightness(100%)";
+        optionB.style.filter = "brightness(50%)";
+        optionC.style.filter = "brightness(50%)";
+    }
+    if (position == 2) {
+        optionA.style.filter = "brightness(50%)";
+        optionB.style.filter = "brightness(100%)";
+        optionC.style.filter = "brightness(50%)";
+    }
+    if (position == 3) {
+        optionA.style.filter = "brightness(50%)";
+        optionB.style.filter = "brightness(50%)";
+        optionC.style.filter = "brightness(100%)";
+    }
 }

@@ -143,4 +143,5 @@ div.header {
     border-radius: 5%;
     margin-right: 5.5em;
     margin-left: 5.5em;
+    animation: textclip 4s ease-in-out infinite;
 }
