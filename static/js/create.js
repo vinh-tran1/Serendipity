@@ -27,7 +27,7 @@ var frames = {
             info.innerHTML = "Returning to Homepage. . .";
         }
         else {
-            info.innerHTML = "Scan to submit your own image!"
+            info.innerHTML = "Use your phone to scan!"
         }
     }
 

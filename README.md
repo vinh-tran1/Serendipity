@@ -1,6 +1,6 @@
 # Human Computer Interaction Final Prototype
 
-Serenpidity is a ...
+Serendipity is a ...
 
 **INSERT PROJECT DESCRIPTION**
 

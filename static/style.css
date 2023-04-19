@@ -1,4 +1,4 @@
-/*styling for background for all oages*/
+/*styling for background for all pages*/
 .bg-grad {
     background: linear-gradient(221deg, #7ab1a3, #abd5eb, #abb6eb, #eaebf0);
     background-size: 1000% 1000%;
@@ -132,4 +132,16 @@ div.header {
     to {
         background-position: 200% center;
     }
+}
+
+.progress {
+    margin-right: 5em;
+    margin-left: 5em;
+}
+
+.letter {
+    border-radius: 5%;
+    margin-right: 5.5em;
+    margin-left: 5.5em;
+    animation: textclip 4s ease-in-out infinite;
 }
