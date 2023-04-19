@@ -133,3 +133,8 @@ div.header {
         background-position: 200% center;
     }
 }
+
+.progress {
+    margin-right: 5em;
+    margin-left: 5em;
+}
