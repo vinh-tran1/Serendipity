@@ -1,7 +1,7 @@
 import { handLeftDetection, handRightDetection, handAnyDetection, getGridPosition } from "./utilityFunctions.js";
 
-var host = "cpsc484-01.yale.internal:8888";
-// var host = "127.0.0.1:4444"; // recorded data
+// var host = "cpsc484-01.yale.internal:8888";
+var host = "127.0.0.1:4444"; // recorded data
 
 $(document).ready(function () {
     frames.start();
@@ -33,14 +33,21 @@ export function returnHome(frame) {
                 exit = false
             }
         }
-    }
-    else {
+    };
+
+    if (handLeftDetection(frame) == 0 && handRightDetection(frame) == 1) {
+        leftcounter = 0;
+        document.getElementsByClassName('progress-bar').item(0).className = "progress-bar";
+        exit = false
+    };
+
+    if (handLeftDetection(frame) == 0 && handRightDetection(frame) == 0) {
         leftcounter = 0;
         progress = 0;
         document.getElementsByClassName('progress-bar').item(0).className = "progress-bar";
         document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
         exit = false
-    }
+    };
 };
 
 function progressReturn( leftcounter ) {

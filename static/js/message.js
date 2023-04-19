@@ -1,8 +1,8 @@
 import { returnHome } from "./main.js";
 import { handRightDetection, handLeftDetection } from "./utilityFunctions.js";
 
-var host = "cpsc484-02.yale.internal:8888";
-// var host = "127.0.0.1:4444"; // recorded data
+// var host = "cpsc484-02.yale.internal:8888";
+var host = "127.0.0.1:4444"; // recorded data
 
 
 $(document).ready(function () {
@@ -13,7 +13,6 @@ var rightcounter = 0;
 var progress = 0;
 
 var info = document.getElementById("info");
-var label = document.getElementById("label");
 
 var frames = {
     socket: null,
@@ -28,12 +27,12 @@ var frames = {
 
     show: function (frame) {
         goToCreate(frame);
+        returnHome(frame);
         if (handRightDetection(frame) == 0 && handLeftDetection(frame) == 0) {
             info.innerHTML = "Hold up right hand to leave your own message!"
         }
         if (handLeftDetection(frame) == 1) {
-            info.innerHTML = "Returning to Homepage...";
-            returnHome(frame);
+            info.innerHTML = "Returning to Homepage. . .";
         }
     }
 

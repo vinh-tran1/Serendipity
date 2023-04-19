@@ -13,6 +13,7 @@
 <body>
     <script src="../static/js/main.js" type="module"></script>
     <script src="../static/js/utilityFunctions.js" type="module"></script>
+    <script src="../static/js/create.js" type="module"></script>
 
     <div class="container-fluid bg-grad vh-100 d-flex justify-content-center align-items-center">
 
@@ -32,7 +33,13 @@
 
         <!-- Instructions for Human-Computer Interaction -->
         <div class="fixed-bottom text-center mb-3">
+
             <h1 id="info">Scan to submit your own image!</h1>
+            <div class="progress">
+                <div id="progress-continue" class="progress-bar" role="progressbar" style="width:0%;">
+                    loading . . .
+                </div>
+            </div>
         </div>
 
     </div>
