@@ -1,4 +1,4 @@
-import { returnHome, goToNext, restartCounter } from "./main.js";
+import { returnHome, goToNext, restartCounter, autoReturn } from "./main.js";
 import { getGridPosition, handLeftDetection, handRightDetection } from "./utilityFunctions.js";
 
 var host = "cpsc484-02.yale.internal:8888";
@@ -37,6 +37,7 @@ var frames = {
     show: function (frame) {
         returnHome(frame);          // left hand check to quit
         positionProcess(frame);     // body position check to select message
+        autoReturn(frame)
         if (handRightDetection(frame) == 0 && handLeftDetection(frame) == 0) {
             info.innerHTML = "Move to desired card and raise right hand!"
         }
@@ -68,10 +69,6 @@ export function positionProcess(frame) {
         if (currPosition != 0 && counter[currPosition] > 5) {
             goToNext(frame, page, message);
             returnHome(frame)
-        }
-        //returns home if user leaves before message selects
-        else if (currPosition == 0 && counter[currPosition] > 100) {
-            window.location.replace("landing");
         }
         else if (handLeftDetection(frame) == 0) {
             restartCounter();

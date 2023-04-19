@@ -88,3 +88,18 @@ export function restartCounter() {
     document.getElementsByClassName('progress-bar').item(0).className = "progress-bar";
     document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
 }
+
+// returns to home if no one is detected for a period of time
+export function autoReturn(frame) {
+    var isPerson = getGridPosition(frame);
+    if (isPerson == 0) {
+        nopeoplecounter++; 
+        console.log("nobody there? ", nopeoplecounter);
+        if (nopeoplecounter >= 100) {
+            window.location.replace("landing");
+        }
+    }
+    else{
+        nopeoplecounter = 0;
+    }
+}

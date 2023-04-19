@@ -1,4 +1,4 @@
-import { returnHome, goToNext } from "./main.js";
+import { returnHome, goToNext, autoReturn } from "./main.js";
 import { handRightDetection, handLeftDetection } from "./utilityFunctions.js";
 
 var host = "cpsc484-02.yale.internal:8888";
@@ -30,6 +30,7 @@ var frames = {
     show: function (frame) {
         goToNext(frame, page, message);
         returnHome(frame);
+        autoReturn(frame);
         if (handRightDetection(frame) == 0 && handLeftDetection(frame) == 0) {
             info.innerHTML = "Hold up right hand to leave your own message!"
         }
