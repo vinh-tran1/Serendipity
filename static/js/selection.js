@@ -1,4 +1,4 @@
-import { returnHome, goToNext } from "./main.js";
+import { returnHome, goToNext, restartCounter } from "./main.js";
 import { getGridPosition, handLeftDetection, handRightDetection } from "./utilityFunctions.js";
 
 // var host = "cpsc484-02.yale.internal:8888";
@@ -33,7 +33,6 @@ var frames = {
     },
 
     show: function (frame) {
-        // goToNext(frame, page, message);
         returnHome(frame);          // left hand check to quit
         positionProcess(frame);     // body position check to select message
         if (handRightDetection(frame) == 0 && handLeftDetection(frame) == 0) {
@@ -56,12 +55,17 @@ export function positionProcess(frame) {
     optionSelect(position);
     counter[position]++;
 
-    if (position != 0 && counter[position] > 20) { //waits 20 counts then uses goToNext function to go to messages
+    if (position != 0 && counter[position] > 5) {
         goToNext(frame, page, message);
-        //window.location.replace("message");
+        returnHome(frame)
     }
-    else if (position == 0 && counter[position] > 100) //returns home if user leaves before message selects
+    //returns home if user leaves before message selects
+    else if (position == 0 && counter[position] > 100) {
         window.location.replace("landing");
+    }
+    else if (handLeftDetection(frame) == 0) {
+        restartCounter();
+    }
 
     console.log("position: " + position + ", counter: " + counter[position]);
 

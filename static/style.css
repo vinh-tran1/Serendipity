@@ -94,6 +94,7 @@ div.header {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    
 }
 
 .animate-character
@@ -144,4 +145,46 @@ div.header {
     margin-right: 5.5em;
     margin-left: 5.5em;
     animation: textclip 4s ease-in-out infinite;
+    transform:
+    perspective(75em)
+    rotateX(18deg);
+    box-shadow:
+    rgba(22, 31, 39, 0.42) 0px 60px 123px -25px,
+    rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
+}
+
+#exit {
+    color: #786c6b;
+    font-weight: bold;
+    margin-top: 1em;
+    margin-left: 2em;
+}
+
+#message {
+    color: black;
+    font-family: bradley hand;
+    font-size: 3em;
+    font-weight: bold;
+    border-width: 3px;
+    border-style: solid;
+    border-color:black;
+    transform:
+    perspective(75em)
+    rotateX(18deg);
+    box-shadow:
+    rgba(22, 31, 39, 0.42) 0px 60px 123px -25px,
+    rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
+}
+
+.text {
+    font-family: Georgia;
+}
+
+#qr {
+    transform:
+    perspective(75em)
+    rotateX(5deg);
+    box-shadow:
+    rgba(22, 31, 39, 0.42) 0px 60px 123px -25px,
+    rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
 }
