@@ -33,7 +33,7 @@ var frames = {
     },
 
     show: function (frame) {
-        goToNext(frame, page, message);
+        // goToNext(frame, page, message);
         returnHome(frame);          // left hand check to quit
         positionProcess(frame);     // body position check to select message
         if (handRightDetection(frame) == 0 && handLeftDetection(frame) == 0) {
@@ -51,13 +51,15 @@ var frames = {
 export function positionProcess(frame) {
 
     // Check whether they're in message 1, message 2, or message 3 range (x-axis)
-
     var position = getGridPosition(frame);
+
     optionSelect(position);
     counter[position]++;
 
-    if (position != 0 && counter[position] > 50) //goes to message
-        window.location.replace("message");
+    if (position != 0 && counter[position] > 20) { //waits 20 counts then uses goToNext function to go to messages
+        goToNext(frame, page, message);
+        //window.location.replace("message");
+    }
     else if (position == 0 && counter[position] > 100) //returns home if user leaves before message selects
         window.location.replace("landing");
 
