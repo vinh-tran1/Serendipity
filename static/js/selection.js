@@ -1,8 +1,8 @@
 import { returnHome, goToNext } from "./main.js";
 import { getGridPosition, handLeftDetection, handRightDetection } from "./utilityFunctions.js";
 
-var host = "cpsc484-02.yale.internal:8888";
-// var host = "127.0.0.1:4444"; // recorded data
+// var host = "cpsc484-02.yale.internal:8888";
+var host = "127.0.0.1:4444"; // recorded data
 
 $(document).ready(function () {
     frames.start();
@@ -32,7 +32,7 @@ var frames = {
         returnHome(frame);          // left hand check to quit
         positionProcess(frame);     // body position check to select message
         if (handRightDetection(frame) == 0 && handLeftDetection(frame) == 0) {
-            info.innerHTML = "Hold up right hand to leave your own message!"
+            info.innerHTML = "Move to desired card to choose one!"
         }
         if (handLeftDetection(frame) == 1) {
             info.innerHTML = "Returning to Homepage. . .";
