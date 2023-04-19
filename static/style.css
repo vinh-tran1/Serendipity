@@ -145,3 +145,15 @@ div.header {
     margin-left: 5.5em;
     animation: textclip 4s ease-in-out infinite;
 }
+
+#exit {
+    color: #786c6b;
+    font-weight: bold;
+}
+
+#message {
+    color: black;
+    font-family: bradley hand;
+    font-size: 3em;
+    font-weight: bold;
+}
