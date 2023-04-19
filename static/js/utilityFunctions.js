@@ -30,8 +30,8 @@ export function handLeftDetection(frame) {
     return 0;
 }
 
-// Any Hand Raise
-export function handAnyDetection(frame) {
+// Both Hand Raise
+export function handBothDetection(frame) {
     if (frame.people.length > 0) {
         //normalize by subtracting the pelvis joint coordinates
         var pelvis_y = frame.people[0].joints[0].position.y;
@@ -39,7 +39,7 @@ export function handAnyDetection(frame) {
         var left_hand_y = (frame.people[0].joints[8].position.y - pelvis_y) * -1;
         var head_y = (frame.people[0].joints[26].position.y - pelvis_y) * -1;
 
-        if (right_hand_y > head_y || left_hand_y > head_y)
+        if (right_hand_y > head_y && left_hand_y > head_y)
             return 1;
     }
     return 0;
@@ -53,10 +53,10 @@ export function getGridPosition(frame) {
     //var leftBound = -1780; var first_x = -700; var second_x = 690;
 
     //these bounds are if I go based of relative positioning of user
-    var leftBound = -2000; var first_x = -480; var second_x = 380;
+    var leftBound = -2000; var first_x = -480; var second_x = 380; var rightBound = 1600;
 
     var chest_x = frame.people[0].joints[2].position.x * -1;
-    var gridPostion = 1;
+    var gridPostion = 0; //not in frame
 
     //console.log("location: " + chest_x);
 
@@ -64,7 +64,7 @@ export function getGridPosition(frame) {
         gridPostion = 1;
     else if (chest_x > first_x && chest_x <= second_x) //second envelope
         gridPostion = 2;
-    else //third envelope
+    else if (chest_x > second_x && chest_x <= rightBound) //third envelope
         gridPostion = 3;
 
     return gridPostion;

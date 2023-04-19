@@ -8,6 +8,8 @@ $(document).ready(function () {
     frames.start();
 });
 
+var counter = [0, 0, 0, 0];
+
 var frames = {
     socket: null,
 
@@ -37,7 +39,15 @@ export function positionProcess(frame) {
     //          counters[getGridPosition(frame)]++
     //          if (counters[getGridPosition(frame)] > 30 && getGridPosition(frame) != 0) { // open message! }
     //          else { // no one there, there to landing}
+    //var position = getGridPosition(frame);
+
     var position = getGridPosition(frame);
-    console.log("position: " + position);
+    counter[position]++;
+
+    if (position != 0 && counter[position] > 30) //goes to message
+        window.location.replace("message");
+    else if (position == 0 && counter[position] > 100) //returns home if user leaves before message selects
+        window.location.replace("landing");
+    //console.log("position: " + position);
 
 }
