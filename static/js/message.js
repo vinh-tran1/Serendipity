@@ -28,7 +28,7 @@ var frames = {
     },
 
     show: function (frame) {
-        setTimeout(goToNext(frame, page, message), 10000);
+        goToNext(frame, page, message);
         returnHome(frame);
         autoReturn(frame);
         if (handRightDetection(frame) == 0 && handLeftDetection(frame) == 0) {
