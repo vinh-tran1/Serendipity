@@ -1,8 +1,8 @@
 import { returnHome, goToNext } from "./main.js";
 import { getGridPosition, handLeftDetection, handRightDetection } from "./utilityFunctions.js";
 
-// var host = "cpsc484-02.yale.internal:8888";
-var host = "127.0.0.1:4444"; // recorded data
+var host = "cpsc484-02.yale.internal:8888";
+// var host = "127.0.0.1:4444"; // recorded data
 
 $(document).ready(function () {
     frames.start();
@@ -57,10 +57,11 @@ export function positionProcess(frame) {
     var position = getGridPosition(frame);
     counter[position]++;
 
-    if (position != 0 && counter[position] > 30) //goes to message
+    if (position != 0 && counter[position] > 50) //goes to message
         window.location.replace("message");
     else if (position == 0 && counter[position] > 100) //returns home if user leaves before message selects
         window.location.replace("landing");
-    //console.log("position: " + position);
+
+    console.log("position: " + position + ", counter: " + counter[position]);
 
 }

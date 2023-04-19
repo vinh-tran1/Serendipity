@@ -47,6 +47,8 @@ export function handBothDetection(frame) {
 
 // Returns if user is standing at envelope 1, 2, or 3
 export function getGridPosition(frame) {
+    var gridPostion = 0; //not in frame
+
     if (frame.people.length > 0) {
         // Using absolute positioning instead of relative to pelvis
 
@@ -57,7 +59,7 @@ export function getGridPosition(frame) {
         var leftBound = -2000; var first_x = -480; var second_x = 380; var rightBound = 1600;
 
         var chest_x = frame.people[0].joints[2].position.x * -1;
-        var gridPostion = 0; //not in frame
+
 
         //console.log("location: " + chest_x);
 
@@ -67,7 +69,8 @@ export function getGridPosition(frame) {
             gridPostion = 2;
         else if (chest_x > second_x && chest_x <= rightBound) //third envelope
             gridPostion = 3;
-
-        return gridPostion;
+    
     }
+    
+    return gridPostion;
 }
