@@ -66,7 +66,7 @@ export function positionProcess(frame) {
     counter[currPosition]++;
 
     if (checkPosition == currPosition) {
-        if (currPosition != 0 && counter[currPosition] > 5) {
+        if (currPosition != 0 && counter[currPosition] > 20) {
             goToNext(frame, page, message);
             returnHome(frame)
         }
