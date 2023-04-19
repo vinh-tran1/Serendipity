@@ -32,7 +32,7 @@ var frames = {
         returnHome(frame);          // left hand check to quit
         positionProcess(frame);     // body position check to select message
         if (handRightDetection(frame) == 0 && handLeftDetection(frame) == 0) {
-            info.innerHTML = "Move to desired card to choose one!"
+            info.innerHTML = "Move to desired card and raise right hand!"
         }
         if (handLeftDetection(frame) == 1) {
             info.innerHTML = "Returning to Homepage. . .";
