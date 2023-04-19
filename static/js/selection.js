@@ -64,12 +64,13 @@ export function positionProcess(frame) {
 
     if (position != 0 && counter[position] > 5) {
         goToNext(frame, page, message);
+        returnHome(frame)
     }
     //returns home if user leaves before message selects
     else if (position == 0 && counter[position] > 100) {
         window.location.replace("landing");
     }
-    else {
+    else if (handLeftDetection(frame) == 0) {
         restartCounter();
     }
 
