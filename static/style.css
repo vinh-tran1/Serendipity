@@ -138,3 +138,9 @@ div.header {
     margin-right: 5em;
     margin-left: 5em;
 }
+
+.letter {
+    border-radius: 5%;
+    margin-right: 5.5em;
+    margin-left: 5.5em;
+}
