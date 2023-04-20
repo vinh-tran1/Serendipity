@@ -55,7 +55,7 @@ export function positionProcess(frame) {
     optionSelect(position);
     counter[position]++;
 
-    if (position != 0 && counter[position] > 5) {
+    if (position != 0 && counter[position] > 10) { //waits 10 counts before starts choosing message
         goToNext(frame, page, message);
         returnHome(frame)
     }
