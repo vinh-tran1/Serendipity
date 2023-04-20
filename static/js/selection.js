@@ -1,8 +1,8 @@
-import { returnHome, goToNext, restartCounter } from "./main.js";
+import { returnHome, goToNext, restartCounter, autoReturn } from "./main.js";
 import { getGridPosition, handLeftDetection, handRightDetection } from "./utilityFunctions.js";
 
-// var host = "cpsc484-02.yale.internal:8888";
-var host = "127.0.0.1:4444"; // recorded data
+var host = "cpsc484-02.yale.internal:8888";
+// var host = "127.0.0.1:4444"; // recorded data
 
 $(document).ready(function () {
     frames.start();
@@ -15,6 +15,8 @@ var rightcounter = 0;
 var progress = 0;
 var page = "message";
 var message = "Opening message. . ."
+
+var checkPosition = 0;
 
 // get option elements
 var optionA = document.getElementById("A")
@@ -35,6 +37,7 @@ var frames = {
     show: function (frame) {
         returnHome(frame);          // left hand check to quit
         positionProcess(frame);     // body position check to select message
+        autoReturn(frame)
         if (handRightDetection(frame) == 0 && handLeftDetection(frame) == 0) {
             info.innerHTML = "Move to desired card and raise right hand!"
         }
@@ -54,20 +57,34 @@ export function positionProcess(frame) {
 
     optionSelect(position);
     counter[position]++;
+    // Check whether they in message 1, message 2, or message 3 range (x-axis)
+    // Keep a counter of how long they stand in each grid position (1, 2, 3)
+    // Once a grid area reaches counter for 30 frames on it, then redirect to message!
+    // IDEA: counter array: [no one there, message 1, message 2, message 3]
+    //          counters[getGridPosition(frame)]++
+    //          if (counters[getGridPosition(frame)] > 30 && getGridPosition(frame) != 0) { // open message! }
+    //          else { // no one there, there to landing}
+    //var position = getGridPosition(frame);
 
-    if (position != 0 && counter[position] > 10) { //waits 10 counts before starts choosing message
-        goToNext(frame, page, message);
-        returnHome(frame)
+    var currPosition = getGridPosition(frame);
+    optionSelect(currPosition);
+    counter[currPosition]++;
+
+    if (checkPosition == currPosition) {
+        if (currPosition != 0 && counter[currPosition] > 20) {
+            goToNext(frame, page, message);
+            returnHome(frame)
+        }
+        else if (handLeftDetection(frame) == 0) {
+            restartCounter();
+        }
     }
-    //returns home if user leaves before message selects
-    else if (position == 0 && counter[position] > 100) {
-        window.location.replace("landing");
-    }
-    else if (handLeftDetection(frame) == 0) {
-        restartCounter();
+    else {
+        checkPosition = currPosition;
+        counter = [0, 0, 0, 0];
     }
 
-    console.log("position: " + position + ", counter: " + counter[position]);
+    console.log("current position: " + currPosition + ", checked position: " + checkPosition + ", counter: " + counter[currPosition]);
 
 }
 

@@ -1,7 +1,7 @@
 import { handLeftDetection, handRightDetection, handBothDetection, getGridPosition } from "./utilityFunctions.js";
 
-// var host = "cpsc484-01.yale.internal:8888";
-var host = "127.0.0.1:4444"; // recorded data
+var host = "cpsc484-01.yale.internal:8888";
+// var host = "127.0.0.1:4444"; // recorded data
 
 $(document).ready(function () {
     frames.start();
@@ -87,4 +87,19 @@ export function restartCounter() {
     progress = 0;
     document.getElementsByClassName('progress-bar').item(0).className = "progress-bar";
     document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
+}
+
+// returns to home if no one is detected for a period of time
+export function autoReturn(frame) {
+    var isPerson = getGridPosition(frame);
+    if (isPerson == 0) {
+        nopeoplecounter++; 
+        console.log("nobody there? ", nopeoplecounter);
+        if (nopeoplecounter >= 100) {
+            window.location.replace("landing");
+        }
+    }
+    else{
+        nopeoplecounter = 0;
+    }
 }

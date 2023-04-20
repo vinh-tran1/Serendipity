@@ -1,4 +1,4 @@
-import { returnHome } from "./main.js";
+import { returnHome, autoReturn } from "./main.js";
 import { handLeftDetection } from "./utilityFunctions.js";
 
 var host = "cpsc484-02.yale.internal:8888";
@@ -23,6 +23,7 @@ var frames = {
 
     show: function (frame) {
         returnHome(frame);
+        autoReturn(frame);
         if (handLeftDetection(frame) == 1) {
             info.innerHTML = "Returning to Homepage. . .";
         }

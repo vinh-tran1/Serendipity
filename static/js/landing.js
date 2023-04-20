@@ -1,8 +1,7 @@
-// import { handContinue } from "./main.js";
 import { handRightDetection } from "./utilityFunctions.js";
 
-// var host = "cpsc484-02.yale.internal:8888";
-var host = "127.0.0.1:4444"; // recorded data
+var host = "cpsc484-02.yale.internal:8888";
+// var host = "127.0.0.1:4444"; // recorded data
 
 $(document).ready(function () {
     frames.start();
@@ -13,6 +12,7 @@ var rightcounter = 0
 var loading = document.getElementById("loading");
 var ring = document.getElementById("timer-ring");
 var fill = document.getElementById("time-fill");
+var info = document.getElementById("info");
 
 var frames = {
     socket: null,
@@ -40,7 +40,8 @@ function goToSelection(frame) {
         if (rightcounter > 0) {
             console.log("right hand raised: ", rightcounter);
             fill.hidden = false;
-            loading.innerHTML = Math.trunc((30 - rightcounter)/3);
+            info.innerHTML = "Starting. . .";
+            loading.innerHTML = Math.trunc((30 - rightcounter)/6);
             if (rightcounter > 30) {
                 window.location.replace("selection");
             }
@@ -48,7 +49,8 @@ function goToSelection(frame) {
     }
     else {
         fill.hidden = true;
-        loading.innerHTML = 10;
+        loading.innerHTML = 5;
+        info.innerHTML = "Hold right hand up to start!"
         rightcounter = 0;
     }
 }
