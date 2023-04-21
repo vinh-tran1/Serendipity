@@ -18,7 +18,8 @@ var nonrightcounter = 0;
 var nonleftcounter = 0;
 var nopeoplecounter = 0;
 
-var info = document.getElementById("info")
+var info = document.getElementById("info");
+var bar = document.getElementsByClassName("progress");
 
 // If left hand above head for x time, then go back to home
 export function returnHome(frame) {
@@ -27,7 +28,7 @@ export function returnHome(frame) {
         leftcounter += handLeftDetection(frame);
         if (leftcounter > 0) {
             progressReturn( leftcounter );
-            console.log("left hand raised: ", leftcounter);
+            // console.log("left hand raised: ", leftcounter);
             if (leftcounter > 30) {
                 exit = true;
                 window.location.replace("landing");
@@ -63,7 +64,7 @@ export function goToNext(frame, page, message) {
         rightcounter += handRightDetection(frame)
         if (rightcounter > 0) {
             info.innerHTML = message;
-            console.log("right hand raised: ", rightcounter);
+            // console.log("right hand raised: ", rightcounter);
             progressContinue(rightcounter);
             if (rightcounter > 30) {
                 document.getElementsByClassName('progress-bar').item(0).className = "progress-bar bg-success";
@@ -94,7 +95,7 @@ export function autoReturn(frame) {
     var isPerson = getGridPosition(frame);
     if (isPerson == 0) {
         nopeoplecounter++; 
-        console.log("nobody there? ", nopeoplecounter);
+        // console.log("nobody there? ", nopeoplecounter);
         if (nopeoplecounter >= 100) {
             window.location.replace("landing");
         }

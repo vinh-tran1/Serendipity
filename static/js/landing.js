@@ -27,7 +27,6 @@ var frames = {
 
 
     show: function (frame) {
-        //console.log("chest position: " + frame.people[0].joints[2].position.x * -1);
         goToSelection(frame);
     }
     
@@ -38,7 +37,7 @@ function goToSelection(frame) {
     if (handRightDetection(frame) == 1) {
         rightcounter += handRightDetection(frame)
         if (rightcounter > 0) {
-            console.log("right hand raised: ", rightcounter);
+            // console.log("right hand raised: ", rightcounter);
             fill.hidden = false;
             info.innerHTML = "Starting. . .";
             loading.innerHTML = Math.trunc((30 - rightcounter)/6);

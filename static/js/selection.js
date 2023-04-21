@@ -58,7 +58,7 @@ export function positionProcess(frame) {
     counter[currPosition]++;
 
     if (checkPosition == currPosition) {
-        if (currPosition != 0 && counter[currPosition] > 20) {
+        if (currPosition != 0 && counter[currPosition] > 10) {
             goToNext(frame, page, message);
             returnHome(frame)
         }
@@ -71,7 +71,7 @@ export function positionProcess(frame) {
         counter = [0, 0, 0, 0];
     }
 
-    console.log("current position: " + currPosition + ", checked position: " + checkPosition + ", counter: " + counter[currPosition]);
+    // console.log("current position: " + currPosition + ", checked position: " + checkPosition + ", counter: " + counter[currPosition]);
 
 }
 

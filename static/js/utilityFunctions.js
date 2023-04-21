@@ -1,3 +1,5 @@
+var trackedUser = null;
+
 // Note: we multiply positions by -1 because the user is facing the kinect sensor so we need to reverse the direction
 
 // might have to do something about body_ids to make it less cluttered
@@ -5,10 +7,11 @@
 // Right Hand Raise
 export function handRightDetection(frame) {
     if (frame.people.length > 0) {
+        var user = trackUser(frame);
         //normalize by subtracting the pelvis joint coordinates
-        var pelvis_y = frame.people[0].joints[0].position.y;
-        var right_hand_y = (frame.people[0].joints[15].position.y - pelvis_y) * -1;
-        var head_y = (frame.people[0].joints[26].position.y - pelvis_y) * -1;
+        var pelvis_y = user.joints[0].position.y;
+        var right_hand_y = (user.joints[15].position.y - pelvis_y) * -1;
+        var head_y = (user.joints[26].position.y - pelvis_y) * -1;
 
         if (right_hand_y > head_y)
             return 1;
@@ -73,4 +76,25 @@ export function getGridPosition(frame) {
     }
     
     return gridPostion;
+}
+
+// tracks the first user to come into display
+// refreshes after user leaves 
+
+function trackUser(frame) {
+    var trackedUserID = frame.groups.body_ids[0];
+
+    // if tracked user still in group detection
+    if (frame.groups.body_ids.includes(trackedUserID) == true) {
+        for (let i = (frame.people.length - 1); i >= 0; i--) {
+            if (trackedUserID == frame.people[i].body_id) {
+                trackedUser = frame.people[i];
+            }
+        }
+    }
+    else {
+        trackedUser = null;
+    }
+    console.log("tracked user: ", trackedUser)
+    return trackedUser
 }
