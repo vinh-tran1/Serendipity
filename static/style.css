@@ -152,6 +152,12 @@ div.header {
     rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
 }
 
+.letter.selected {
+    border: 3px solid yellow;
+    transform: perspective(75em) rotateX(18deg) scale(1.1);
+    box-shadow: rgba(22, 31, 39, 0.42) 0px 60px 123px -25px, rgba(19, 26, 32, 0.08) 0px 35px 75px -35px, 0 0 0 6px rgba(255, 255, 0, 0.5);
+    }
+
 #exit {
     /* color: #786c6b;
     font-weight: bold;
@@ -208,7 +214,7 @@ div.header {
 .msg_wrapper {
     height: 400px;
     width: 500px;
-    background-color: #ced4da;
+    background-color: #484949;
     position: relative;
     display: flex;
     margin-top: 50px;
@@ -216,7 +222,8 @@ div.header {
     z-index: 0;  
     box-shadow:
     rgba(12, 17, 20, 0.42) 0px 60px 123px -25px,
-    rgba(0, 0, 0, 0.08) 0px 35px 75px -35px;
+    rgba(0, 0, 0, 0.08) 0px 35px 75px -35px,
+    rgba(0, 0, 0, 0.15) 0px 0px 8px 0px inset; /* added shadow inside the envelope */
     animation-name: float;
     animation-duration: 5s;
     animation-timing-function: ease-in-out;
@@ -280,6 +287,9 @@ div.header {
     border-left: 250px solid transparent;
     transform-origin: top;
     transition: transform 0.25s linear;
+    box-shadow:
+    rgba(0, 0, 0, 0.42) 0px 60px 123px -25px,
+    rgba(0, 4, 34, 0.08) 0px 35px 75px -35px,
   }
  
   /* Lid when closed */

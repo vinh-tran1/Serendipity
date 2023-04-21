@@ -16,6 +16,7 @@ var message = "Going to create page. . .";
 const lidOne = document.querySelector('.lid.one');
 const lidTwo =  document.querySelector('.lid.two');
 const msgLetter = document.querySelector('.msg_letter');
+let openOnce = false;
 
 var info = document.getElementById("info");
 
@@ -32,8 +33,11 @@ var frames = {
 
     show: function (frame) {
         //if both hands up, message opens
-        if (handBothDetection(frame) == 1)
+        if (handBothDetection(frame) === 1 && !openOnce){
             openMessage();
+            //openOnce = true;
+        }
+            
 
         goToNext(frame, page, message);
         returnHome(frame);
@@ -57,4 +61,6 @@ function openMessage() {
     lidTwo.classList.add('one');
 
     msgLetter.style.transform = 'translateY(-100px)';
+
+    openOnce = true;
 }

@@ -80,17 +80,24 @@ function optionSelect(position) {
     optionB.style.filter = "brightness(100%)";
     optionC.style.filter = "brightness(100%)";
 
+    optionA.classList.remove("selected");
+    optionB.classList.remove("selected");
+    optionC.classList.remove("selected");
+
     if (position == 1) {
+        optionA.classList.add("selected");
         optionA.style.filter = "brightness(100%)";
         optionB.style.filter = "brightness(50%)";
         optionC.style.filter = "brightness(50%)";
     }
     if (position == 2) {
+        optionB.classList.add("selected");
         optionA.style.filter = "brightness(50%)";
         optionB.style.filter = "brightness(100%)";
         optionC.style.filter = "brightness(50%)";
     }
     if (position == 3) {
+        optionC.classList.add("selected");
         optionA.style.filter = "brightness(50%)";
         optionB.style.filter = "brightness(50%)";
         optionC.style.filter = "brightness(100%)";
