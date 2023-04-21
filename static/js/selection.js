@@ -53,19 +53,6 @@ var frames = {
 export function positionProcess(frame) {
 
     // Check whether they're in message 1, message 2, or message 3 range (x-axis)
-    var position = getGridPosition(frame);
-
-    optionSelect(position);
-    counter[position]++;
-    // Check whether they in message 1, message 2, or message 3 range (x-axis)
-    // Keep a counter of how long they stand in each grid position (1, 2, 3)
-    // Once a grid area reaches counter for 30 frames on it, then redirect to message!
-    // IDEA: counter array: [no one there, message 1, message 2, message 3]
-    //          counters[getGridPosition(frame)]++
-    //          if (counters[getGridPosition(frame)] > 30 && getGridPosition(frame) != 0) { // open message! }
-    //          else { // no one there, there to landing}
-    //var position = getGridPosition(frame);
-
     var currPosition = getGridPosition(frame);
     optionSelect(currPosition);
     counter[currPosition]++;
