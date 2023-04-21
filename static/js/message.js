@@ -1,8 +1,8 @@
 import { returnHome, goToNext, autoReturn } from "./main.js";
 import { handRightDetection, handLeftDetection, handBothDetection } from "./utilityFunctions.js";
 
-var host = "cpsc484-02.yale.internal:8888";
-// var host = "127.0.0.1:4444"; // recorded data
+// var host = "cpsc484-02.yale.internal:8888";
+var host = "127.0.0.1:4444"; // recorded data
 
 
 $(document).ready(function () {
@@ -32,8 +32,9 @@ var frames = {
 
     show: function (frame) {
         //if both hands up, message opens
-        if (handBothDetection(frame) == 1)
+        if (handBothDetection(frame) == 1) {
             openMessage();
+        }
 
         goToNext(frame, page, message);
         returnHome(frame);

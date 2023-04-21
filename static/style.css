@@ -241,7 +241,8 @@ div.header {
     align-items: center;
     margin-top: 20px; /* adjust the margin as needed */
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 1.8em;
+    font-size: 2em;
+
   }  
 
   .animate-message {
@@ -320,11 +321,15 @@ div.header {
     border-radius: 15px;
     z-index: 2;
     transition: 0.5s;
+    border-width: 3px;
+    border-style: solid;
+    border-color: navy;
   }
   
   .msg_letter p {
     text-align: center;
     font-size: 1.95em;
+    font-family: bradley hand;
     /* font-size: 26px; */
     margin-left: 10px;
     margin-right: 10px;
