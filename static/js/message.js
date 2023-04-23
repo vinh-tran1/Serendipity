@@ -6,7 +6,7 @@ var host = "127.0.0.1:4444"; // recorded data
 
 
 $(document).ready(function () {
-    frames.start();
+    setTimeout(function () {frames.start();}, 3000);
 });
 
 var page = "create";
