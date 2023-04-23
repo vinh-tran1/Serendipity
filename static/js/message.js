@@ -15,7 +15,7 @@ const lidOne = document.querySelector('.lid.one');
 const lidTwo =  document.querySelector('.lid.two');
 const msgLetter = document.querySelector('.msg_letter');
 let openOnce = false;
-const position = 0;
+var position = 0;
 let posOnce = false;
 var image = document.getElementById("msg-img");
 
