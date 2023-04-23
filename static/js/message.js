@@ -33,17 +33,9 @@ var frames = {
     },
 
     show: function (frame) {
-        if (!posOnce){
-            position = getGridPosition(frame);
-            console.log(position);
-            if (position != 0)
-                changeImage(position);
-        }
-
         //if both hands up, message opens
         if (handBothDetection(frame) === 1 && !openOnce){
             openMessage();
-            //openOnce = true;
         }
             
         goToNext(frame, page, message);
@@ -57,19 +49,7 @@ var frames = {
             info.innerHTML = "Returning to Homepage. . .";
         }
     }
-
 };
-
-function changeImage(position){
-    if (position === 1)
-        image.src="../static/images/harvard.png";
-    else if (position === 2)
-        image.src="../static/images/pizza.png";
-    else
-        image.src="../static/images/bulldog.png";
-
-    posOnce = true;
-}
 
 function openMessage() {
     lidOne.classList.remove('one');
