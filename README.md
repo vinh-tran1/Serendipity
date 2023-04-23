@@ -1,6 +1,8 @@
 # Human Computer Interaction Final Prototype
 
-Serendipity is a ...
+Serendipity is a program where users virtually open messages written by others and write their own messages for future users to open. Serendipity hopes to spread positivity and improve people's moods through messages that contain happy and postive notes. Users will hopefully feel a sense of value when they share their own messages. Additionally, Serendipity will help reinforce a positive community that will benefit people's daily lives and faciliate productive communication through anonymous messages. 
+
+Serendipity uses a Kinect Azure sensor to track people in front of the display. The Kinect returns joint and body positions which we utilize to navigate and interact with the program. 
 
 **INSERT PROJECT DESCRIPTION**
 
@@ -38,6 +40,8 @@ Due to manual authentication requirements of the google forms api which would hi
 
 ## Constraints
 
+Only one person can be in front of the display for Serendipity to work properly.
+
 As previously mentioned in the *Refreshing Database* section under **Setup**, the [Google Forms API](https://developers.google.com/forms/api/guides/retrieve-forms-responses) has strict authentication requirements. In order to refresh the database, you must have a google account within the yale domain and use it during the authentication proccess while running messages.py
 
 <hr>
@@ -54,7 +58,7 @@ abc
 
 ### Connor Lee:
 
-abc
+I mainly contributed to dealing with the page navigation of the program. I used the right hand, left hand, body position detection functions that Vinh made to write functions that will go to next page, return home, or open messages. I also helped with styling each of the pages. I also made sure that we had proper indicators to display the status of our program such as progress bars. Gabe did a great job with creating cool animations for our pages and integrating the Google API for submitting messages. Vinh did a great job helping style the pages and creating useful utility functions. 
 
 <hr>
 
