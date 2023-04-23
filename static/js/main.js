@@ -58,7 +58,7 @@ function progressReturn( leftcounter ) {
     document.getElementsByClassName('progress-bar').item(0).setAttribute('style','width:'+Number(progress)+'%');
 }
 
-export function goToNext(frame, page, message) {
+export function goToNext(frame, page, message, arg) {
     // check if right hand raised
     if (handRightDetection(frame) == 1) {
         rightcounter += handRightDetection(frame)
@@ -68,7 +68,7 @@ export function goToNext(frame, page, message) {
             progressContinue(rightcounter);
             if (rightcounter > 30) {
                 document.getElementsByClassName('progress-bar').item(0).className = "progress-bar bg-success";
-                window.location.replace(page);
+                window.location.replace(page+"?arg="+arg);
             }
         }
     }

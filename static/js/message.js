@@ -38,7 +38,7 @@ var frames = {
             openMessage();
         }
             
-        goToNext(frame, page, message);
+        goToNext(frame, page, message, "");
         returnHome(frame);
         autoReturn(frame);
 
