@@ -37,9 +37,11 @@ var frames = {
         if (handBothDetection(frame) === 1 && !openOnce){
             openMessage();
         }
+        else {
+            goToNext(frame, page, message, "");
+            returnHome(frame);
+        }
             
-        goToNext(frame, page, message, "");
-        returnHome(frame);
         autoReturn(frame);
 
         if (handRightDetection(frame) == 0 && handLeftDetection(frame) == 0) {
