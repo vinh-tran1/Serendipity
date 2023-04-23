@@ -59,7 +59,7 @@ export function positionProcess(frame) {
 
     if (checkPosition == currPosition) {
         if (currPosition != 0 && counter[currPosition] > 10) {
-            goToNext(frame, page, message);
+            goToNext(frame, page, message, currPosition);
             returnHome(frame)
         }
         else if (handLeftDetection(frame) == 0) {

@@ -1,4 +1,4 @@
-from flask import Flask, make_response, render_template
+from flask import Flask, make_response, render_template, request
 from messages import fetch_message
 
 app = Flask(__name__, template_folder='templates')
@@ -25,7 +25,18 @@ def selection():
 def message():
     """Generates message page"""
 
-    html = render_template('message.html', msg=fetch_message())
+    arg = request.args.get('arg')
+
+    arg_to_image = {
+        '1': './static/images/harvard.png',
+        '2': './static/images/pizza.png',
+        '3': './static/images/bulldog.png',
+    }
+
+    html = render_template('message.html',
+                           msg="fetch_message()",
+                           sticker=arg_to_image[arg]
+                           )
     response = make_response(html)
     return response
 
