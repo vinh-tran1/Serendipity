@@ -34,7 +34,7 @@ def message():
     }
 
     html = render_template('message.html',
-                           msg="fetch_message()",
+                           msg=fetch_message(),
                            sticker=arg_to_image[arg]
                            )
     response = make_response(html)
