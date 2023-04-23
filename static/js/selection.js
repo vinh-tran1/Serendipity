@@ -1,8 +1,8 @@
 import { returnHome, goToNext, restartCounter, autoReturn } from "./main.js";
 import { getGridPosition, handLeftDetection, handRightDetection } from "./utilityFunctions.js";
 
-var host = "cpsc484-02.yale.internal:8888";
-// var host = "127.0.0.1:4444"; // recorded data
+// var host = "cpsc484-02.yale.internal:8888";
+var host = "127.0.0.1:4444"; // recorded data
 
 $(document).ready(function () {
     frames.start();
@@ -58,7 +58,7 @@ export function positionProcess(frame) {
     counter[currPosition]++;
 
     if (checkPosition == currPosition) {
-        if (currPosition != 0 && counter[currPosition] > 20) {
+        if (currPosition != 0 && counter[currPosition] > 10) {
             goToNext(frame, page, message);
             returnHome(frame)
         }
@@ -71,7 +71,7 @@ export function positionProcess(frame) {
         counter = [0, 0, 0, 0];
     }
 
-    console.log("current position: " + currPosition + ", checked position: " + checkPosition + ", counter: " + counter[currPosition]);
+    // console.log("current position: " + currPosition + ", checked position: " + checkPosition + ", counter: " + counter[currPosition]);
 
 }
 
@@ -84,19 +84,19 @@ function optionSelect(position) {
     optionB.classList.remove("selected");
     optionC.classList.remove("selected");
 
-    if (position == 1) {
+    if (position === 1) {
         optionA.classList.add("selected");
         optionA.style.filter = "brightness(100%)";
         optionB.style.filter = "brightness(50%)";
         optionC.style.filter = "brightness(50%)";
     }
-    if (position == 2) {
+    if (position === 2) {
         optionB.classList.add("selected");
         optionA.style.filter = "brightness(50%)";
         optionB.style.filter = "brightness(100%)";
         optionC.style.filter = "brightness(50%)";
     }
-    if (position == 3) {
+    if (position === 3) {
         optionC.classList.add("selected");
         optionA.style.filter = "brightness(50%)";
         optionB.style.filter = "brightness(50%)";

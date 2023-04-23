@@ -1,22 +1,23 @@
 import { returnHome, goToNext, autoReturn } from "./main.js";
-import { handRightDetection, handLeftDetection, handBothDetection } from "./utilityFunctions.js";
+import { handRightDetection, handLeftDetection, handBothDetection, getGridPosition } from "./utilityFunctions.js";
 
-var host = "cpsc484-02.yale.internal:8888";
-// var host = "127.0.0.1:4444"; // recorded data
+// var host = "cpsc484-02.yale.internal:8888";
+var host = "127.0.0.1:4444"; // recorded data
 
 
 $(document).ready(function () {
     frames.start();
 });
 
-var rightcounter = 0;
-var progress = 0;
 var page = "create";
 var message = "Going to create page. . .";
 const lidOne = document.querySelector('.lid.one');
 const lidTwo =  document.querySelector('.lid.two');
 const msgLetter = document.querySelector('.msg_letter');
 let openOnce = false;
+const position = 0;
+let posOnce = false;
+var image = document.getElementById("msg-img");
 
 var info = document.getElementById("info");
 
@@ -32,13 +33,19 @@ var frames = {
     },
 
     show: function (frame) {
+        if (!posOnce){
+            position = getGridPosition(frame);
+            console.log(position);
+            if (position != 0)
+                changeImage(position);
+        }
+
         //if both hands up, message opens
         if (handBothDetection(frame) === 1 && !openOnce){
             openMessage();
             //openOnce = true;
         }
             
-
         goToNext(frame, page, message);
         returnHome(frame);
         autoReturn(frame);
@@ -52,6 +59,17 @@ var frames = {
     }
 
 };
+
+function changeImage(position){
+    if (position === 1)
+        image.src="../static/images/harvard.png";
+    else if (position === 2)
+        image.src="../static/images/pizza.png";
+    else
+        image.src="../static/images/bulldog.png";
+
+    posOnce = true;
+}
 
 function openMessage() {
     lidOne.classList.remove('one');
