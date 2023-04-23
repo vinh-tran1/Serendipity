@@ -200,11 +200,11 @@ div.header {
     /* transform:
     perspective(75em)
     rotateX(5deg); */
-    box-shadow:
+    /* box-shadow:
     rgba(22, 31, 39, 0.42) 0px 60px 123px -25px,
-    rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
-    height: 600px;
-    width: 500px;
+    rgba(19, 26, 32, 0.08) 0px 35px 75px -35px; */
+    height: 500px;
+    width: 400px;
 }
 
   /* Envelope styling*/
