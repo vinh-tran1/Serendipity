@@ -4,10 +4,6 @@ Serendipity is a program where users virtually open messages written by others a
 
 Serendipity uses a Kinect Azure sensor to track people in front of the display. The Kinect returns joint and body positions which we utilize to navigate and interact with the program. 
 
-**INSERT PROJECT DESCRIPTION**
-
-**INSERT TASKS PROJ ADDRESSESS**
-
 To contribute, submit your own via [Message Google Form](https://docs.google.com/forms/d/e/1FAIpQLScH_FncTkA2onxPRmCydOxVaJquJRJmsYl6Z26GNj-0JHCQaw/viewform?usp=sf_link)
 
 <hr>
@@ -40,8 +36,6 @@ Due to manual authentication requirements of the google forms api which would hi
 
 ## Constraints
 
-Only one person can be in front of the display for Serendipity to work properly.
-
 As previously mentioned in the *Refreshing Database* section under **Setup**, the [Google Forms API](https://developers.google.com/forms/api/guides/retrieve-forms-responses) has strict authentication requirements. In order to refresh the database, you must have a google account within the yale domain and use it during the authentication proccess while running messages.py
 
 <hr>
@@ -58,7 +52,7 @@ abc
 
 ### Connor Lee:
 
-I mainly contributed to dealing with the page navigation of the program. I used the right hand, left hand, body position detection functions that Vinh made to write functions that will go to next page, return home, or open messages. I also helped with styling each of the pages. I also made sure that we had proper indicators to display the status of our program such as progress bars. Gabe did a great job with creating cool animations for our pages and integrating the Google API for submitting messages. Vinh did a great job helping style the pages and creating useful utility functions. 
+I mainly contributed to dealing with the page navigation of the program. I used the right hand, left hand, body position detection functions that Vinh made to write functions that will go to next page, return home, or open messages. I helped with styling each of the pages and made sure that we had proper indicators to display the status of our program such as progress bars. I also made sure to include a bad word filter, so that people would not be able to submit disgraceful messages. I created a function to keep track of a single user, so that multiple people would not interfere with the interaction. Gabe did a great job with creating cool animations for our pages and integrating the Google API for submitting messages. Vinh did a great job helping style the pages and creating useful utility functions. 
 
 <hr>
 
