@@ -1,4 +1,7 @@
-"""Starts the server to process HTTP requests (same as pset3)"""
+"""
+Starts the server to process HTTP requests
+NOTE: This file is borrowed from Prof Alan Weide's CPSC 419 Full Stack problem sets
+"""
 
 import sys
 from argparse import ArgumentParser
