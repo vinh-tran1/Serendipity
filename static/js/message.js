@@ -11,13 +11,15 @@ $(document).ready(function () {
 
 var page = "create";
 var message = "Going to create page. . .";
-const lidOne = document.querySelector('.lid.one');
-const lidTwo =  document.querySelector('.lid.two');
-const msgLetter = document.querySelector('.msg_letter');
 let openOnce = false;
-var position = 0;
-let posOnce = false;
-var image = document.getElementById("msg-img");
+const msgWrapper = document.querySelector(".msg_wrapper");
+// const lidOne = document.querySelector('.lid.one');
+// const lidTwo =  document.querySelector('.lid.two');
+// const msgLetter = document.querySelector('.msg_letter');
+
+// var position = 0;
+// let posOnce = false;
+// var image = document.getElementById("msg-img");
 
 var info = document.getElementById("info");
 
@@ -54,13 +56,15 @@ var frames = {
 };
 
 function openMessage() {
-    lidOne.classList.remove('one');
-    lidOne.classList.add('two');
+    // lidOne.classList.remove('one');
+    // lidOne.classList.add('two');
 
-    lidTwo.classList.remove('two');
-    lidTwo.classList.add('one');
+    // lidTwo.classList.remove('two');
+    // lidTwo.classList.add('one');
 
-    msgLetter.style.transform = 'translateY(-100px)';
+    // msgLetter.style.transform = 'translateY(-100px)';
+
+    msgWrapper.classList.add("open");
 
     openOnce = true;
 }
