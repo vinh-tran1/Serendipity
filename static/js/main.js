@@ -31,7 +31,7 @@ export function returnHome(frame) {
             // console.log("left hand raised: ", leftcounter);
             if (leftcounter > 30) {
                 exit = true;
-                window.location.replace("landing");
+                window.location.replace("index");
                 exit = false
             }
         }
@@ -97,7 +97,7 @@ export function autoReturn(frame) {
         nopeoplecounter++; 
         console.log("nobody there? ", nopeoplecounter);
         if (nopeoplecounter >= 100) {
-            window.location.replace("landing");
+            window.location.replace("index");
         }
     }
     else{
