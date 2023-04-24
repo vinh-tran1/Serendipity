@@ -258,6 +258,16 @@ div.header {
     transition-delay: 0.75s;
   }
 
+  .msg_wrapper.open .msg_letter {
+    transform: translateY(-100px);
+    transition-delay: 0.5s;
+  }
+
+  .msg_wrapper.add .envelope{
+    transform: translateY(100px);
+    transition-delay: 0.5s;
+  }
+
   .msg_instruction {
     display: flex;
     justify-content: center;

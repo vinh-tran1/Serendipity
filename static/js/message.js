@@ -1,8 +1,8 @@
 import { returnHome, goToNext, autoReturn } from "./main.js";
 import { handRightDetection, handLeftDetection, handBothDetection, getGridPosition } from "./utilityFunctions.js";
 
-// var host = "cpsc484-02.yale.internal:8888";
-var host = "127.0.0.1:4444"; // recorded data
+var host = "cpsc484-02.yale.internal:8888";
+// var host = "127.0.0.1:4444"; // recorded data
 
 
 $(document).ready(function () {
@@ -62,8 +62,7 @@ function openMessage() {
     // lidTwo.classList.remove('two');
     // lidTwo.classList.add('one');
 
-    // msgLetter.style.transform = 'translateY(-100px)';
-
+    //msgWrapper.style.transform = 'translateY(-100px)';
     msgWrapper.classList.add("open");
 
     openOnce = true;
