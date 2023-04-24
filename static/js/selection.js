@@ -41,7 +41,7 @@ var frames = {
         if (handRightDetection(frame) == 0 && handLeftDetection(frame) == 0) {
             info.innerHTML = "Move to desired card and raise right hand!"
         }
-        if (handLeftDetection(frame) == 1) {
+        if (handLeftDetection(frame) == 1 && handRightDetection(frame) == 0) {
             info.innerHTML = "Returning to Homepage. . .";
         }
     }

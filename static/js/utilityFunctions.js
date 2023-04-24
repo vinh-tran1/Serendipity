@@ -2,6 +2,7 @@ var trackedUser = null;
 var userID = null;
 var min = Infinity;
 var group = [];
+var gridPostion = 0; //not in frame
 
 // Note: we multiply positions by -1 because the user is facing the kinect sensor so we need to reverse the direction
 
@@ -80,8 +81,6 @@ export function handBothDetection(frame) {
 
 // Returns if user is standing at envelope 1, 2, or 3
 export function getGridPosition(frame) {
-    var gridPostion = 0; //not in frame
-
     if (frame.people.length > 0) {
         trackedUser = trackUser(frame);
         // Using absolute positioning instead of relative to pelvis
@@ -107,7 +106,9 @@ export function getGridPosition(frame) {
         //     gridPostion = 2;
         // else if (chest_x > second_x && chest_x <= rightBound) //third envelope
         //     gridPostion = 3;
-    
+    }
+    else {
+        gridPostion = 0;
     }
     
     return gridPostion;
@@ -160,7 +161,7 @@ function trackUser(frame) {
         userID = null;
     }
     // console.log("group", group)
-    console.log("tracked user", trackedUser.body_id)
+    // console.log("tracked user", trackedUser.body_id)
     group = [];
     return trackedUser
 }

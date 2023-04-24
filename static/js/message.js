@@ -49,7 +49,7 @@ var frames = {
         if (handRightDetection(frame) == 0 && handLeftDetection(frame) == 0) {
             info.innerHTML = "Hold up right hand to leave your own message!"
         }
-        if (handLeftDetection(frame) == 1) {
+        if (handLeftDetection(frame) == 1 && handRightDetection(frame) == 0) {
             info.innerHTML = "Returning to Homepage. . .";
         }
     }
