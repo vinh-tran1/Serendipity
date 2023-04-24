@@ -1,9 +1,4 @@
-var userID = null;
-var trackedUser = null;
-
 // Note: we multiply positions by -1 because the user is facing the kinect sensor so we need to reverse the direction
-
-// might have to do something about body_ids to make it less cluttered
 
 // Right Hand Raise
 export function handRightDetection(frame) {
@@ -54,17 +49,9 @@ export function getGridPosition(frame) {
 
     if (frame.people.length > 0) {
         // Using absolute positioning instead of relative to pelvis
-
-        //these bounds are if I were to go off the dots
-        //var leftBound = -1780; var first_x = -700; var second_x = 690;
-
-        //these bounds are if I go based of relative positioning of user
         var leftBound = -2000; var first_x = -480; var second_x = 380; var rightBound = 1600;
 
         var chest_x = frame.people[0].joints[2].position.x * -1;
-
-
-        //console.log("location: " + chest_x);
 
         if (chest_x > leftBound && chest_x <= first_x) //first envelope
             gridPostion = 1;
@@ -77,6 +64,25 @@ export function getGridPosition(frame) {
     
     return gridPostion;
 }
+
+//finds closest user... don't know whether to use bodyID or index??
+//implementation:
+//var index = closestUser(frame);
+//call this up there like frame.people[index].joints[2].position.x etc.....
+function closestUser(frame) {
+    var min = 1;
+
+    for (var i = 0; i < frames.people.length; i++){
+        if (min > frames.people[i].joints[0].position.z)
+            min = i;
+            //min = frames.people[i].body_id;
+    }
+
+    return min;
+}
+
+// var userID = null;
+// var trackedUser = null;
 
 // // determine what user to track
 // // refresh if user leaves
