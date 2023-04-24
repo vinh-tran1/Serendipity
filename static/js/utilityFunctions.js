@@ -1,17 +1,18 @@
 var trackedUser = null;
+var userID = null;
 var min = Infinity;
+var group = [];
 
 // Note: we multiply positions by -1 because the user is facing the kinect sensor so we need to reverse the direction
 
 // Right Hand Raise
 export function handRightDetection(frame) {
     if (frame.people.length > 0) {
-        const user = trackUser(frame);
-        console.log(user);
+        trackedUser = trackUser(frame);
         //normalize by subtracting the pelvis joint coordinates
-        var pelvis_y = user.joints[0].position.y;
-        var right_hand_y = (user.joints[15].position.y - pelvis_y) * -1;
-        var head_y = (user.joints[26].position.y - pelvis_y) * -1;
+        var pelvis_y = trackedUser.joints[0].position.y;
+        var right_hand_y = (trackedUser.joints[15].position.y - pelvis_y) * -1;
+        var head_y = (trackedUser.joints[26].position.y - pelvis_y) * -1;
 
         if (right_hand_y > head_y)
             return 1;
@@ -30,11 +31,11 @@ export function handRightDetection(frame) {
 // Left Hand Raise
 export function handLeftDetection(frame) {
     if (frame.people.length > 0) {
-        const user = trackUser(frame);
+        trackedUser = trackUser(frame);
         //normalize by subtracting the pelvis joint coordinates
-        var pelvis_y = user.joints[0].position.y;
-        var left_hand_y = (user.joints[8].position.y - pelvis_y) * -1;
-        var head_y = (user.joints[26].position.y - pelvis_y) * -1;
+        var pelvis_y = trackedUser.joints[0].position.y;
+        var left_hand_y = (trackedUser.joints[8].position.y - pelvis_y) * -1;
+        var head_y = (trackedUser.joints[26].position.y - pelvis_y) * -1;
 
         if (left_hand_y > head_y)
             return 1;
@@ -54,12 +55,12 @@ export function handLeftDetection(frame) {
 // Both Hand Raise
 export function handBothDetection(frame) {
     if (frame.people.length > 0) {
-        const user = trackUser(frame);
+        trackedUser = trackUser(frame);
         //normalize by subtracting the pelvis joint coordinates
-        var pelvis_y = user.joints[0].position.y;
-        var right_hand_y = (user.joints[15].position.y - pelvis_y) * -1;
-        var left_hand_y = (user.joints[8].position.y - pelvis_y) * -1;
-        var head_y = (user.joints[26].position.y - pelvis_y) * -1;
+        var pelvis_y = trackedUser.joints[0].position.y;
+        var right_hand_y = (trackedUser.joints[15].position.y - pelvis_y) * -1;
+        var left_hand_y = (trackedUser.joints[8].position.y - pelvis_y) * -1;
+        var head_y = (trackedUser.joints[26].position.y - pelvis_y) * -1;
 
         if (right_hand_y > head_y && left_hand_y > head_y)
             return 1;
@@ -82,11 +83,11 @@ export function getGridPosition(frame) {
     var gridPostion = 0; //not in frame
 
     if (frame.people.length > 0) {
-        const user = trackUser(frame);
+        trackedUser = trackUser(frame);
         // Using absolute positioning instead of relative to pelvis
         var leftBound = -2000; var first_x = -480; var second_x = 380; var rightBound = 1600;
 
-        var chest_x = user.joints[2].position.x * -1;
+        var chest_x = trackedUser.joints[2].position.x * -1;
 
         if (chest_x > leftBound && chest_x <= first_x) //first envelope
             gridPostion = 1;
@@ -123,16 +124,44 @@ function closestUser(frame) {
             min = frame.people[i].body_id;
     }
     // console.log("closest user id", min)
-    return min;
+    userID = min;
+    return userID;
 }
 
-function trackUser(frame) {
-    const userID = closestUser(frame);
+// return IDs of everyone in frame
+function trackGroup(frame) {
     for (let i = 0; i < frame.people.length; i++) {
-        if (frame.people[i].body_id == userID) {
-            trackedUser = frame.people[i];
-            console.log(trackedUser.body_id)
-            return trackedUser
+        group[i] = frame.people[i].body_id;
+    }
+
+    return group;
+}
+
+// constantly get IDs of people in front of display
+// if not tracking user, get closet user ID
+// if closest user remains in front of display, track and persist tracking user
+// if tracked user goes out of display, reset tracked user
+function trackUser(frame) {
+    console.log("userid ", userID)
+    trackGroup(frame);
+    if (userID == null && trackedUser == null) {
+        closestUser(frame);
+    }
+    else if (group.includes(userID)) {
+        for (let i = 0; i < frame.people.length; i++) {
+            if (frame.people[i].body_id == userID) {
+                trackedUser = frame.people[i];
+                // console.log(trackedUser.body_id)
+            }
         }
     }
+    else {
+        trackedUser = null;
+        min = Infinity;
+        userID = null;
+    }
+    // console.log("group", group)
+    // console.log("tracked user", trackedUser)
+    group = [];
+    return trackedUser
 }
