@@ -142,7 +142,6 @@ function trackGroup(frame) {
 // if closest user remains in front of display, track and persist tracking user
 // if tracked user goes out of display, reset tracked user
 function trackUser(frame) {
-    console.log("userid ", userID)
     trackGroup(frame);
     if (userID == null && trackedUser == null) {
         closestUser(frame);
@@ -161,7 +160,7 @@ function trackUser(frame) {
         userID = null;
     }
     // console.log("group", group)
-    // console.log("tracked user", trackedUser)
+    console.log("tracked user", trackedUser.body_id)
     group = [];
     return trackedUser
 }
