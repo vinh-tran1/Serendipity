@@ -5,6 +5,8 @@ import random
 app = Flask(__name__, template_folder='templates')
 app.secret_key = b'\xcdG\x8dI\xe1\xbdG\x9dMON\fK\xa3EY~/'
 
+STICKERS = ""
+
 # randomly choose what stickers to use
 def choose_stickers():
     stickers = { "puppy": './static/images/puppy.png', 
@@ -13,14 +15,14 @@ def choose_stickers():
             "harvard" : './static/images/harvard.png',
             "cowboy" : './static/images/cowboy.png',
             "golf" : './static/images/golf.png',
-            "dachi" : './static/images/dachi.png'
+            "dachi" : './static/images/dachi.png',
+            "icecream" : './static/images/icecream.png',
+            "bowtie" : './static/images/bowtie.png',
+            "sweater" : './static/images/sweater.png'
             }
 
     chosen_stickers = random.sample(list(stickers.values()), 3)
-    print(chosen_stickers)
     return chosen_stickers
-
-STICKERS = ""
 
 @app.route('/', methods=['GET'])
 @app.route('/landing', methods=['GET'])
