@@ -50,7 +50,7 @@ function goToSelection(frame) {
         else {
             fill.hidden = true;
             loading.innerHTML = 5;
-            info.innerHTML = "Hold right hand up to start!"
+            info.innerHTML = "Hold Up Right Hand To Start!"
             rightcounter = 0;
         }
     }
