@@ -1,6 +1,8 @@
 # Human Computer Interaction Final Prototype
 
-Serendipity is a program where users virtually open messages written by others and write their own messages for future users to open. Serendipity hopes to spread positivity and improve people's moods through messages that contain happy and postive notes. Users will hopefully feel a sense of value when they share their own messages. Additionally, Serendipity will help reinforce a positive community that will benefit people's daily lives and faciliate productive communication through anonymous messages. 
+### Description:
+
+Serendipity engages the community to anonymously share positive messages among one another. It displays 3 unique messages for the user to choose from. Once they move to the card they desire to open, the hidden message will be revealed for a temporary period. Thereafter, the user can exit or decide to leave a new message behind by scanning a QR code to fill out a google form.
 
 Serendipity uses a Kinect Azure sensor to track people in front of the display. The Kinect returns joint and body positions which we utilize to navigate and interact with the program. 
 
@@ -10,7 +12,11 @@ Serendipity uses a Kinect Azure sensor to track people in front of the display. 
 **Task 2:** Facilitate communication and build community between strangers 
 - The system will build a strong community at Yale by facilitating communication between people. Allowing users to leave anonymous, positive messages for others will make our campus more connected.
 
-To contribute, submit your own via [Message Google Form](https://docs.google.com/forms/d/e/1FAIpQLScH_FncTkA2onxPRmCydOxVaJquJRJmsYl6Z26GNj-0JHCQaw/viewform?usp=sf_link)
+To contribute, scan the QR code at the end to submit your own via [Message Google Form](https://docs.google.com/forms/d/e/1FAIpQLScH_FncTkA2onxPRmCydOxVaJquJRJmsYl6Z26GNj-0JHCQaw/viewform?usp=sf_link)
+
+### What We Hope To Achieve:
+
+Serendipity is a program where users virtually open messages written by others and write their own messages for future users to open. Serendipity hopes to spread authentic positivity and improve other people's moods through messages that contain happy and uplifting words. Not only that, users will also hopefully feel a sense of value themselves when they write and share their own messages. Additionally, Serendipity will help reinforce a more positive and cohesive community that will benefit people's daily lives and faciliate productive communication through anonymous messages. 
 
 <hr>
 
@@ -46,7 +52,8 @@ Due to manual authentication requirements of the google forms api which would hi
 
 ## Constraints
 
-As previously mentioned in the *Refreshing Database* section under **Setup**, the [Google Forms API](https://developers.google.com/forms/api/guides/retrieve-forms-responses) has strict authentication requirements. In order to refresh the database, you must have a google account within the yale domain and use it during the authentication proccess while running messages.py. This is only relevant if you wish to refresh the datastore.
+- As previously mentioned in the *Refreshing Database* section under **Setup**, the [Google Forms API](https://developers.google.com/forms/api/guides/retrieve-forms-responses) has strict authentication requirements. In order to refresh the database, you must have a google account within the Yale domain and use it during the authentication proccess while running messages.py. This is only relevant if you wish to refresh the datastore.
+- No physical constaints with the system except for best performance we recommend standing between 2 to 6 feet of the TV so that the Kinect Sensor can properly capture movement
 
 <hr>
 
