@@ -264,8 +264,8 @@ div.header {
     transition-delay: 0.5s;
   }
 
-  .msg_wrapper.add .envelope{
-    transform: translateY(100px);
+  .msg_wrapper.open .envelope{
+    transform: translateY(50px);
     transition-delay: 0.5s;
   }
 
