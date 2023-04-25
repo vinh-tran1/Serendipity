@@ -44,7 +44,7 @@ Due to manual authentication requirements of the google forms api which would hi
 ## Constraints
 
 - As previously mentioned in the *Refreshing Database* section under **Setup**, the [Google Forms API](https://developers.google.com/forms/api/guides/retrieve-forms-responses) has strict authentication requirements. In order to refresh the database, you must have a google account within the Yale domain and use it during the authentication proccess while running messages.py
-- For best performance, users should stand at least 2 feet away (but no more than 7 feet) from the TV screen and limit people in the background
+- No physical constaints with the system except for best performance we recommend standing between 2 to 6 feet of the TV so that the Kinect Sensor can properly capture movement
 
 <hr>
 
