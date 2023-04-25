@@ -259,7 +259,7 @@ div.header {
   }
 
   .msg_wrapper.open .envelope{
-    transform: translateY(50px);
+    transform: translateY(30px);
     transition-delay: 0.5s;
   }
 
@@ -379,6 +379,11 @@ div.header {
   
   .msg_wrapper:hover .msg_letter {
     transform: translateY(-6.25rem);
+    transition-delay: 0.5s;
+  }
+
+  .msg_wrapper:hover .envelope{
+    transform: translateY(30px);
     transition-delay: 0.5s;
   }
 
