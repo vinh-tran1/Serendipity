@@ -255,8 +255,8 @@ div.header {
   }
   
   .msg_wrapper.open .lid.two {
-    transform: rotateX(0deg);
-    transition-delay: 0.75s;
+    transform: rotateX(180deg);
+    transition-delay: 0.25s;
   }
 
   .msg_wrapper.open .msg_letter {
