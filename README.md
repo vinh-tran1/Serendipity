@@ -4,6 +4,12 @@ Serendipity is a program where users virtually open messages written by others a
 
 Serendipity uses a Kinect Azure sensor to track people in front of the display. The Kinect returns joint and body positions which we utilize to navigate and interact with the program. 
 
+**Task 1:** Improving other people’s moods through authentic positivity
+- The system will share uplifting and authentic messages for people (filter out bad/negative words). This simple, but meaningful moment of the day will provide a positive impact and improve people’s mood.
+
+**Task 2:** Facilitate communication and build community between strangers 
+- The system will build a strong community at Yale by facilitating communication between people. Allowing users to leave anonymous, positive messages for others will make our campus more connected.
+
 To contribute, submit your own via [Message Google Form](https://docs.google.com/forms/d/e/1FAIpQLScH_FncTkA2onxPRmCydOxVaJquJRJmsYl6Z26GNj-0JHCQaw/viewform?usp=sf_link)
 
 <hr>
@@ -15,28 +21,32 @@ To contribute, submit your own via [Message Google Form](https://docs.google.com
 2. source <env_name>/bin/activate
 3. pip install -r requirements.txt
 
+OR
+
+1. pipenv install -r requirements.txt
+
 ### Running App
 - Option 1 (recommended): python runserver.py <port_number>
-  - eg. python runserver.py 17290
+  - eg. python runserver.py 8000
 - Option 2: flask run
 
-Bugs: sometimes a rare issue with Flask arises where only a blank page loads. To address this, re-open on the application on a different port number
+Bugs: sometimes a rare issue with Flask arises where only a blank page loads. To address this, re-open on the application on a different port number.
 
 ### Refreshing Database
+
+*Messsages.csv* can be updated with form messages which are filtered out for bad words and will be randomly selected for display in the app.
 
 Due to manual authentication requirements of the google forms api which would hinder the user experience, we decided to have a local datastore of the messages that can be periodically refreshed. To refresh this database you must go through the following instructions:
 
 1. python messages.py
 2. You will be redirected to your browser where you must use a yale.edu account to authenticate your requset to the API
-- Important that it is an account within the yale university domain due to restricted permissions of a developing app.
-
-*Messsages.csv* will be updated as used for future requests by randomly selecting resposnes
+- Important that it is an **account within the yale university domain** due to restricted permissions of a developing app.
 
 <hr>
 
 ## Constraints
 
-As previously mentioned in the *Refreshing Database* section under **Setup**, the [Google Forms API](https://developers.google.com/forms/api/guides/retrieve-forms-responses) has strict authentication requirements. In order to refresh the database, you must have a google account within the yale domain and use it during the authentication proccess while running messages.py
+As previously mentioned in the *Refreshing Database* section under **Setup**, the [Google Forms API](https://developers.google.com/forms/api/guides/retrieve-forms-responses) has strict authentication requirements. In order to refresh the database, you must have a google account within the yale domain and use it during the authentication proccess while running messages.py. This is only relevant if you wish to refresh the datastore.
 
 <hr>
 
@@ -44,7 +54,7 @@ As previously mentioned in the *Refreshing Database* section under **Setup**, th
 
 ### Gabe Dos Santos:
 
-abc
+My main contribution to this project was creating the structure and flask backend. I first made very simple html files for all of the pages to work as a starting point. From there we tried to connect to the google forms api via javascript but found that we needed a backend for authentication. Therefore I created a simple flask backend based on a previous class. When setting up the google forms API, we found that it required manual authentication for every call so I decided to create a local csv datastore of the messages that could be periodically updated. Then I connected the messages.csv to the frontend and displayed a random one each time. I also worked on creating the basic structure for our kinect functions by having a utils file that processes the frame and returns only the releveant information we want to know such as isLeftHandRaised. Finally, I contacted a ULA to check our setup.sh and run.sh files and give permissions to run our application on the TV.
 
 ### Vinh Tran:
 
