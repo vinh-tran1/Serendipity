@@ -4,14 +4,14 @@
 
 Serendipity engages the community to anonymously share positive messages among one another. It displays 3 unique messages for the user to choose from. Once they move to the card they desire to open, the hidden message will be revealed for a temporary period. Thereafter, the user can exit or decide to leave a new message behind by scanning a QR code to fill out a google form.
 
+Serendipity uses a Kinect Azure sensor to track people in front of the display. The Kinect returns joint and body positions which we utilize to navigate and interact with the program. 
+
+To contribute, scan the QR code at the end to submit your own via [Message Google Form](https://docs.google.com/forms/d/e/1FAIpQLScH_FncTkA2onxPRmCydOxVaJquJRJmsYl6Z26GNj-0JHCQaw/viewform?usp=sf_link)
+
 
 ### What We Hope To Achieve:
 
 Serendipity is a program where users virtually open messages written by others and write their own messages for future users to open. Serendipity hopes to spread authentic positivity and improve other people's moods through messages that contain happy and uplifting words. Not only that, users will also hopefully feel a sense of value themselves when they write and share their own messages. Additionally, Serendipity will help reinforce a more positive and cohesive community that will benefit people's daily lives and faciliate productive communication through anonymous messages. 
-
-Serendipity uses a Kinect Azure sensor to track people in front of the display. The Kinect returns joint and body positions which we utilize to navigate and interact with the program. 
-
-To contribute, scan the QR code at the end to submit your own via [Message Google Form](https://docs.google.com/forms/d/e/1FAIpQLScH_FncTkA2onxPRmCydOxVaJquJRJmsYl6Z26GNj-0JHCQaw/viewform?usp=sf_link)
 
 <hr>
 
