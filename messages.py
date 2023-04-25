@@ -27,7 +27,21 @@ def refresh_messages():
         message = response['answers']['3be5d8d8']['textAnswers']['answers'][0]['value']
         messages.append(message)
 
-    print(messages)
+    # get list of filitered words
+    with open("bad-words.csv",'r') as text_file:
+        bad_words = text_file.readlines()
+        for i, word in enumerate(bad_words):
+            word = word.replace('\n', '')
+            bad_words[i] = word
+
+        # filter out messages with bad words using bad-words dataset
+        for i, message in enumerate(messages):
+            for word in message.split():
+                if word in bad_words:
+                    print("this is a bad word: ", word)
+                    messages.pop(i)
+
+    print("filtered messages: ", messages)
 
     # Create a dataframe from the text answer values
     df = pd.DataFrame({'messages': messages})

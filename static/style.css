@@ -215,6 +215,7 @@ div.header {
   .msg_container {
     display: flex;
     flex-direction: column;
+    transform: scale(0.9);
   }
 
 .msg_wrapper {

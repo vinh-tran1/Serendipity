@@ -19,20 +19,16 @@
 
         <!-- Buttons + Instructions -->
         <div class="fixed-top mt-3 d-flex justify-content-around row">
-            <div class="timer-container" mx-auto mt-4>
-                <!-- <h5 align="left" id="exit">Raise Left Hand to Exit</h5> -->
-                <button id="exit">Raise Left Hand to Exit</button>
-                <div class="col"></div>                
-                <div class="col text-center">
-                    <h1 class="text">Someone Was Thinking Of You Today!</h1>
-                </div>
+            <div class="d-flex col-3 justify-content-center align-items-center">
+                <button class="m-0" id="exit">Raise Left Hand to Exit</button>
             </div>
+            <div class="d-flex col-6 justify-content-center align-items-center">
+                <h1 class="text text-center mb-0">Someone Was Thinking Of You Today!</h1>
+            </div>
+            <div class="d-flex col-3 justify-content-center align-items-center"></div>   
         </div>
 
         <!-- Main page content -->
-        <!-- <div class="card p-3" id="message">
-            {{msg}}
-        </div> -->
         <div class="msg_container">
             <div class="msg_wrapper">
                 <div class="lid one"></div>
@@ -42,15 +38,15 @@
                   <p> {{msg}}</p>
                 </div>
             </div>
-    
-            <div class="msg_instruction animate-message">
-                Raise both hands to open message!
-            </div>
         </div>
         
 
         <!-- Instructions for Human-Computer Interaction -->
         <div class="fixed-bottom text-center mb-3">
+
+            <div class="msg_instruction animate-message">
+                Raise both hands to open message!
+            </div>
 
             <h1 id="info" class="text">Hold Up Right Hand To Leave Your Own Message!</h1>
             <div class="progress" >

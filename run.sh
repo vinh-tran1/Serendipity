@@ -1,5 +1,4 @@
 #!/bin/bash
 
-# activate virtual environment and run server
-source hcienv/bin/activate
-flask run
+# run app
+python runserver.py 8000
