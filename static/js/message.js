@@ -13,13 +13,6 @@ var page = "create";
 var message = "Going to create page. . .";
 let openOnce = false;
 const msgWrapper = document.querySelector(".msg_wrapper");
-// const lidOne = document.querySelector('.lid.one');
-// const lidTwo =  document.querySelector('.lid.two');
-// const msgLetter = document.querySelector('.msg_letter');
-
-// var position = 0;
-// let posOnce = false;
-// var image = document.getElementById("msg-img");
 
 var info = document.getElementById("info");
 
@@ -56,13 +49,6 @@ var frames = {
 };
 
 function openMessage() {
-    // lidOne.classList.remove('one');
-    // lidOne.classList.add('two');
-
-    // lidTwo.classList.remove('two');
-    // lidTwo.classList.add('one');
-
-    //msgWrapper.style.transform = 'translateY(-100px)';
     msgWrapper.classList.add("open");
 
     openOnce = true;

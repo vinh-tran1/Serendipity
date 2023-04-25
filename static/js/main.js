@@ -13,9 +13,6 @@ var progress = 0;
 var next = false
 var exit = false
 
-// TODO: keep track of non-motion to reset everything
-var nonrightcounter = 0;
-var nonleftcounter = 0;
 var nopeoplecounter = 0;
 
 var info = document.getElementById("info");
@@ -29,7 +26,6 @@ export function returnHome(frame) {
             leftcounter += handLeftDetection(frame);
             if (leftcounter > 0) {
                 progressReturn( leftcounter );
-                // console.log("left hand raised: ", leftcounter);
                 if (leftcounter > 30) {
                     exit = true;
                     window.location.replace("landing");
@@ -67,7 +63,6 @@ export function goToNext(frame, page, message, arg) {
             rightcounter += handRightDetection(frame)
             if (rightcounter > 0) {
                 info.innerHTML = message;
-                // console.log("right hand raised: ", rightcounter);
                 progressContinue(rightcounter);
                 if (rightcounter > 30) {
                     document.getElementsByClassName('progress-bar').item(0).className = "progress-bar bg-success";
@@ -99,7 +94,6 @@ export function restartCounter() {
 
 // returns to home if no one is detected for a period of time
 export function autoReturn(frame) {
-    // console.log(getGridPosition(frame))
     var isPerson = getGridPosition(frame);
     if (isPerson == 0) {
         nopeoplecounter++; 

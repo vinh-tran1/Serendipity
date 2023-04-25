@@ -38,7 +38,6 @@ function goToSelection(frame) {
         if (handRightDetection(frame) == 1) {
             rightcounter += handRightDetection(frame)
             if (rightcounter > 0) {
-                // console.log("right hand raised: ", rightcounter);
                 fill.hidden = false;
                 info.innerHTML = "Starting. . .";
                 loading.innerHTML = Math.trunc((30 - rightcounter)/6);

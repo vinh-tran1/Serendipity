@@ -38,10 +38,10 @@ def refresh_messages():
         for i, message in enumerate(messages):
             for word in message.split():
                 if word in bad_words:
-                    print("this is a bad word: ", word)
+                    print("This message contains a bad word: ", message)
                     messages.pop(i)
 
-    print("filtered messages: ", messages)
+    print("Messages: ", messages)
 
     # Create a dataframe from the text answer values
     df = pd.DataFrame({'messages': messages})

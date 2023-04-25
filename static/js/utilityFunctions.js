@@ -17,14 +17,6 @@ export function handRightDetection(frame) {
 
         if (right_hand_y > head_y)
             return 1;
-
-        // //normalize by subtracting the pelvis joint coordinates
-        // var pelvis_y = frame.people[0].joints[0].position.y;
-        // var right_hand_y = (frame.people[0].joints[15].position.y - pelvis_y) * -1;
-        // var head_y = (frame.people[0].joints[26].position.y - pelvis_y) * -1;
-
-        // if (right_hand_y > head_y)
-        //     return 1;
     }
     return 0;
 }
@@ -40,15 +32,6 @@ export function handLeftDetection(frame) {
 
         if (left_hand_y > head_y)
             return 1;
-
-
-        // //normalize by subtracting the pelvis joint coordinates
-        // var pelvis_y = frame.people[0].joints[0].position.y;
-        // var left_hand_y = (frame.people[0].joints[8].position.y - pelvis_y) * -1;
-        // var head_y = (frame.people[0].joints[26].position.y - pelvis_y) * -1;
-
-        // if (left_hand_y > head_y)
-        //     return 1;
     }
     return 0;
 }
@@ -65,16 +48,6 @@ export function handBothDetection(frame) {
 
         if (right_hand_y > head_y && left_hand_y > head_y)
             return 1;
-
-
-        // //normalize by subtracting the pelvis joint coordinates
-        // var pelvis_y = frame.people[0].joints[0].position.y;
-        // var right_hand_y = (frame.people[0].joints[15].position.y - pelvis_y) * -1;
-        // var left_hand_y = (frame.people[0].joints[8].position.y - pelvis_y) * -1;
-        // var head_y = (frame.people[0].joints[26].position.y - pelvis_y) * -1;
-
-        // if (right_hand_y > head_y && left_hand_y > head_y)
-        //     return 1;
     }
     return 0;
 }
@@ -94,18 +67,6 @@ export function getGridPosition(frame) {
             gridPostion = 2;
         else if (chest_x > second_x && chest_x <= rightBound) //third envelope
             gridPostion = 3;
-
-        // // Using absolute positioning instead of relative to pelvis
-        // var leftBound = -2000; var first_x = -480; var second_x = 380; var rightBound = 1600;
-
-        // var chest_x = frame.people[0].joints[2].position.x * -1;
-
-        // if (chest_x > leftBound && chest_x <= first_x) //first envelope
-        //     gridPostion = 1;
-        // else if (chest_x > first_x && chest_x <= second_x) //second envelope
-        //     gridPostion = 2;
-        // else if (chest_x > second_x && chest_x <= rightBound) //third envelope
-        //     gridPostion = 3;
     }
     else {
         gridPostion = 0;
@@ -124,7 +85,7 @@ function closestUser(frame) {
         if (min > frame.people[i].joints[0].position.z)
             min = frame.people[i].body_id;
     }
-    // console.log("closest user id", min)
+
     userID = min;
     return userID;
 }
@@ -151,7 +112,6 @@ function trackUser(frame) {
         for (let i = 0; i < frame.people.length; i++) {
             if (frame.people[i].body_id == userID) {
                 trackedUser = frame.people[i];
-                // console.log(trackedUser.body_id)
             }
         }
     }
@@ -160,8 +120,7 @@ function trackUser(frame) {
         userID = null;
         trackedUser = null;
     }
-    // console.log("group", group)
-    // console.log("tracked user", trackedUser.body_id)
+
     group = [];
     return trackedUser
 }

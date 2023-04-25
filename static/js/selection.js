@@ -70,9 +70,6 @@ export function positionProcess(frame) {
         checkPosition = currPosition;
         counter = [0, 0, 0, 0];
     }
-
-    // console.log("current position: " + currPosition + ", checked position: " + checkPosition + ", counter: " + counter[currPosition]);
-
 }
 
 function optionSelect(position) {
