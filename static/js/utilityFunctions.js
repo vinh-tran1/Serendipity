@@ -156,9 +156,9 @@ function trackUser(frame) {
         }
     }
     else {
-        trackedUser = null;
         min = Infinity;
         userID = null;
+        trackedUser = null;
     }
     // console.log("group", group)
     // console.log("tracked user", trackedUser.body_id)
