@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # run app
-pipenv run python runserver.py 8000
+pipenv run python runserver.py 9995
