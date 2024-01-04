@@ -8,6 +8,12 @@ Serendipity uses a Kinect Azure sensor to track people in front of the display. 
 
 To contribute, scan the QR code at the end to submit your own via [Message Google Form](https://docs.google.com/forms/d/e/1FAIpQLScH_FncTkA2onxPRmCydOxVaJquJRJmsYl6Z26GNj-0JHCQaw/viewform?usp=sf_link)
 
+<div style="display: flex; flex-direction: row; align-items: center; justify-content: center; margin: 0px 5px;">
+    <img src="static/images/title.png" style="width: 500px; height: 425px;" />
+    <img src="static/images/options.png" style="width: 500px; height: 425px;" />
+   <img src="static/images/message.png" style="width: 500px; height: 425px;" />
+</div>
+
 ### What We Hope To Achieve:
 
 Serendipity is a program where users virtually open messages written by others and write their own messages for future users to open. Serendipity hopes to spread positivity within the communitiy and improve other people's moods through messages that contain happy and uplifting words. Not only that, users will also hopefully feel a sense of value themselves when they write and share their own messages. Our goal is for Serendipity to help reinforce a more connected, cohesive, and supportive community :)
