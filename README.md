@@ -1,6 +1,6 @@
 # Human Computer Interaction Final Prototype
 
-### Description:
+### Description: [Demo Video!](https://drive.google.com/file/d/1fZILu852y-7TbV07T74go_Jdlo-Cxs3x/view?usp=drive_link)
 
 Serendipity engages the community to anonymously share positive messages among one another. It displays 3 unique messages for the user to choose from. Once they move to the card they desire to open, the hidden message will be revealed for a temporary period. Thereafter, the user can exit or decide to leave a new message behind by scanning a QR code to fill out a google form.
 
